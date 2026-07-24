@@ -335,6 +335,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185549888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8537165124929433623, guid: e0f1f816ee8a94a0b9159a160f359f50, type: 3}
+  m_PrefabInstance: {fileID: 203616485554215815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &1261942433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +457,55 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1371652817894200197, guid: dc85a7828589b4fbc949d0568e7f7b61, type: 3}
   m_PrefabInstance: {fileID: 6898706823103958923}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667542051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667542053}
+  - component: {fileID: 1667542052}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1667542052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667542051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c29bae63ae84eccaac267b714a6c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainSceneUIManager
+  mainPanel: {fileID: 4030225939046695498}
+  creditsPanel: {fileID: 203616485554215817}
+  playButton: {fileID: 4030225939046695497}
+  creditsButton: {fileID: 4030225939046695496}
+  creditsBackButton: {fileID: 1185549888}
+--- !u!4 &1667542053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667542051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &203616485554215815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -552,6 +612,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2995149464622763335, guid: e0f1f816ee8a94a0b9159a160f359f50, type: 3}
   m_PrefabInstance: {fileID: 203616485554215815}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &203616485554215817 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1720965412115623488, guid: e0f1f816ee8a94a0b9159a160f359f50, type: 3}
+  m_PrefabInstance: {fileID: 203616485554215815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4030225939046695494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -652,6 +717,33 @@ PrefabInstance:
 --- !u!224 &4030225939046695495 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4848980993275712280, guid: 8b27598035a4549faabaf9c904f62c05, type: 3}
+  m_PrefabInstance: {fileID: 4030225939046695494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4030225939046695496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1983577805660563887, guid: 8b27598035a4549faabaf9c904f62c05, type: 3}
+  m_PrefabInstance: {fileID: 4030225939046695494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &4030225939046695497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2120726443940446223, guid: 8b27598035a4549faabaf9c904f62c05, type: 3}
+  m_PrefabInstance: {fileID: 4030225939046695494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!225 &4030225939046695498 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 8630076275691615219, guid: 8b27598035a4549faabaf9c904f62c05, type: 3}
   m_PrefabInstance: {fileID: 4030225939046695494}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6898706823103958923
@@ -771,3 +863,4 @@ SceneRoots:
   - {fileID: 2441958}
   - {fileID: 6898706823103958923}
   - {fileID: 952710945}
+  - {fileID: 1667542053}
