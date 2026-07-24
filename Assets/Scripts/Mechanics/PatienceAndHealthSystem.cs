@@ -5,9 +5,9 @@ namespace YanderesFrequency.Mechanics
 {
     public class PatienceAndHealthSystem : MonoBehaviour
     {
-        [Header("Health (Candles)")]
-        [SerializeField] private int maxCandles = 5;
-        private int currentCandles;
+        [Header("Health (Battery)")]
+        [SerializeField] private int maxHP = 5;
+        private int currentHP;
 
         [Header("Patience (Kesabaran)")]
         [SerializeField] private float maxPatience = 100f;
@@ -16,17 +16,20 @@ namespace YanderesFrequency.Mechanics
         
         private bool isFrozen = true;
         private bool isHesitating = false;
+        private float baseDrainMultiplier = 1f;
 
-        public event Action<int> OnCandlesChanged;
+        public event Action<int> OnHPChanged;
         public event Action<float, float> OnPatienceChanged; // current, max
         public event Action OnGameOver;
 
+        public float MaxPatience => maxPatience;
+
         private void Start()
         {
-            currentCandles = maxCandles;
+            currentHP = maxHP;
             currentPatience = maxPatience;
             
-            OnCandlesChanged?.Invoke(currentCandles);
+            OnHPChanged?.Invoke(currentHP);
             OnPatienceChanged?.Invoke(currentPatience, maxPatience);
         }
 
@@ -34,8 +37,8 @@ namespace YanderesFrequency.Mechanics
         {
             if (isFrozen || currentPatience <= 0) return;
 
-            // Drains 2x faster if hesitating
-            float drainMultiplier = isHesitating ? 2f : 1f;
+            // Drains 2x faster if hesitating, and applies baseDrainMultiplier (for Red choices)
+            float drainMultiplier = (isHesitating ? 2f : 1f) * baseDrainMultiplier;
             currentPatience -= baseDrainRate * drainMultiplier * Time.deltaTime;
 
             if (currentPatience <= 0)
@@ -57,20 +60,43 @@ namespace YanderesFrequency.Mechanics
             isHesitating = hesitating;
         }
 
+        public void SetBaseDrainMultiplier(float multiplier)
+        {
+            baseDrainMultiplier = multiplier;
+        }
+
         public void ResetPatience()
         {
             currentPatience = maxPatience;
             OnPatienceChanged?.Invoke(currentPatience, maxPatience);
         }
 
+        public void ReducePatience(float amount)
+        {
+            currentPatience -= amount;
+            if (currentPatience <= 0)
+            {
+                currentPatience = 0;
+                TakeDamage();
+            }
+            OnPatienceChanged?.Invoke(currentPatience, maxPatience);
+        }
+
+        public void GainHP(int amount)
+        {
+            currentHP += amount;
+            if (currentHP > maxHP) currentHP = maxHP;
+            OnHPChanged?.Invoke(currentHP);
+        }
+
         public void TakeDamage()
         {
-            if (currentCandles <= 0) return;
+            if (currentHP <= 0) return;
 
-            currentCandles--;
-            OnCandlesChanged?.Invoke(currentCandles);
+            currentHP--;
+            OnHPChanged?.Invoke(currentHP);
 
-            if (currentCandles <= 0)
+            if (currentHP <= 0)
             {
                 OnGameOver?.Invoke();
             }

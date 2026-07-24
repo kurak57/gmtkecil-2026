@@ -1,0 +1,31 @@
+Shift,Message,GreenWord,GreenDesc,RedWord,RedDesc
+1,Hey baby...,HEY,Normal,IGNORE,Rude
+1,It's so late... Why aren't you replying?,BUSY,Working,SLEEP,Lying
+1,You're not talking to anyone else right?,NO,Honest,YES,Provoking
+2,Your replies are so slow. Are you ignoring me?,SORRY,Apologetic,SLOW,Defiant
+2,I know you're reading this. Answer me.,YES,Submissive,NO,Rebellious
+2,I just want to hear your voice...,CALL,Comforting,CANT,Refusing
+3,I decided to go for a midnight walk. Guess where?,PARK,Innocent,NOWHERE,Suspicious
+3,The streets are empty. It's just me and my thoughts of you.,AWW,Sweet,CREEPY,Fearful
+3,I'm standing at your street corner now.,COME,Inviting,RETURN,Telling her to go home
+4,Your bedroom light is on. I can see it from here.,HI,Greeting,STALKER,Annoyed/Creeped out
+4,Why did you close the curtains? Hiding something?,COLD,Cold excuse,WINDOW,Avoiding the window
+4,Don't shut me out. We are meant to be together.,YES,Agreeing,INSANE,Calling her crazy
+5,My pager is acting up. Keep the connection alive!,OK,Following orders,CANCEL,Cutting it off
+5,"If you cut me off, I'll just come inside.",WAIT,Stopping her,PLEASE NO,Fearful
+5,I'm in your front yard. The grass is wet.,HUH,Normal response,GO AWAY,Rejecting
+6,Your front door is locked. Why did you lock it?,SAFE,Security reason,BLOCK YOU,Keeping her out on purpose
+6,Did you think a lock could keep me away from you?,NO,Giving up,ESCAPE,Intending to flee
+6,I have a spare key. You forgot I made one.,HOW,Shocked,ILLEGAL,Protesting
+7,I'm inside. It's so dark in your hallway.,HIDE,Hiding oneself,SEARCH,Telling her to look
+7,Shh… Let's play hide and seek baby,SHH,Staying quiet,SCREAM,Wanting to yell
+7,I can hear your heartbeat from outside your door.,CALM,Trying to relax,PANICKING,Total freakout
+8,I'm standing right outside your bedroom.,DOOR,Watching the door,BLOCK IT,Blocking the door
+8,I wonder where you'll hide...,BED,Surrendering,NOWHERE,Hiding
+8,"If you move even a muscle, I'll punish you.",STILL,Freezing,CONFRONT,Fighting back
+9,Is my pager broken? Or are you playing tricks?,BUG,Claiming it's broken,YOURFAULT,Manipulation
+9,Read my messages carefully. Don't let your eyes deceive you.,READ,Focusing,WILL NOT,Refusing to look
+9,The doorknob is turning. Are you ready?,YES,Resigned,REFUSE,Rejecting
+10,The door is jammed! What did you put against it?!,DESK,Honest,DRESSER,Holding strong
+10,You can't keep me away! I love you too much!,STOP,Begging to stop,MANIAC,Insulting
+10,I'M BREAKING IT DOWN! HERE I COME!,HUG,Accepting / Bad End,SURVIVE,Fighting / Survive

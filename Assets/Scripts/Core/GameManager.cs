@@ -1,8 +1,32 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using YanderesFrequency.Mechanics;
 
 namespace YanderesFrequency.Core
 {
+    public enum ChoiceType
+    {
+        Green,
+        Red
+    }
+
+    [Serializable]
+    public class ChoiceData
+    {
+        public string word;
+        public ChoiceType type;
+    }
+
+    [Serializable]
+    public class DialogueEntry
+    {
+        [TextArea(2, 4)]
+        public string message;
+        public ChoiceData greenChoice;
+        public ChoiceData redChoice;
+    }
+
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
@@ -13,11 +37,32 @@ namespace YanderesFrequency.Core
         [SerializeField] private PatienceAndHealthSystem healthSystem;
         [SerializeField] private MorseInputHandler morseInputHandler;
 
+        [Header("Storyline Data")]
+        [SerializeField] private List<DialogueEntry> dialogues = new List<DialogueEntry>();
+        private int currentDialogueIndex = 0;
+        private ChoiceType currentActiveChoiceType;
+
+        [Header("CSV Importer")]
+        [SerializeField] private TextAsset dialogueCsvFile;
+
+        [Header("Debug")]
+        [SerializeField] private int startShift = 1;
+
+        public event Action<DialogueEntry> OnDialogueStarted;
+        public event Action OnGameWon;
+
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+                DontDestroyOnLoad(gameObject);
+                
+                // Auto-add HazardManager if missing
+                if (GetComponent<HazardManager>() == null)
+                {
+                    gameObject.AddComponent<HazardManager>();
+                }
             }
             else
             {
@@ -30,6 +75,41 @@ namespace YanderesFrequency.Core
             if (healthSystem == null) healthSystem = FindObjectOfType<PatienceAndHealthSystem>();
             if (morseInputHandler == null) morseInputHandler = FindObjectOfType<MorseInputHandler>();
 
+            LoadDefaultDialoguesIfEmpty();
+            StartGame();
+        }
+
+        private void LoadDefaultDialoguesIfEmpty()
+        {
+            if (dialogues == null || dialogues.Count == 0)
+            {
+                dialogues = new List<DialogueEntry>();
+                dialogues.Add(new DialogueEntry
+                {
+                    message = "Hey baby, you promised to use the pager I gave you.",
+                    greenChoice = new ChoiceData { word = "YEP", type = ChoiceType.Green },
+                    redChoice = new ChoiceData { word = "FORCED", type = ChoiceType.Red }
+                });
+                dialogues.Add(new DialogueEntry
+                {
+                    message = "It's so late. Why are you still awake?",
+                    greenChoice = new ChoiceData { word = "YOU", type = ChoiceType.Green },
+                    redChoice = new ChoiceData { word = "GAMING", type = ChoiceType.Red }
+                });
+                dialogues.Add(new DialogueEntry
+                {
+                    message = "You're not talking to any other girls, right?",
+                    greenChoice = new ChoiceData { word = "NO", type = ChoiceType.Green },
+                    redChoice = new ChoiceData { word = "ANYONE", type = ChoiceType.Red }
+                });
+            }
+        }
+
+        public void StartGame()
+        {
+            currentDialogueIndex = (startShift - 1) * 3;
+            if (currentDialogueIndex < 0) currentDialogueIndex = 0;
+            
             EnterNarrativePhase();
         }
 
@@ -38,38 +118,113 @@ namespace YanderesFrequency.Core
             CurrentState = GameState.Narrative;
             Debug.Log("Entered Narrative Phase (Time Frozen)");
             
+            int currentShift = (currentDialogueIndex / 3) + 1;
+            if (HazardManager.Instance != null)
+            {
+                HazardManager.Instance.UpdatePhaseBasedOnShift(currentShift);
+            }
+            
             if (healthSystem != null)
             {
                 healthSystem.SetFrozen(true);
             }
+
+            if (currentDialogueIndex < dialogues.Count)
+            {
+                OnDialogueStarted?.Invoke(dialogues[currentDialogueIndex]);
+            }
+            else
+            {
+                Debug.Log("Game Completed!");
+                OnGameWon?.Invoke();
+            }
         }
 
-        // Call this when the player clicks a UI Choice Button (e.g. "LARI")
-        public void StartActionPhase(string chosenWord)
+        public void StartActionPhase(ChoiceData choice)
         {
             CurrentState = GameState.Action;
-            Debug.Log($"Entered Action Phase. Target Word: {chosenWord}");
+            currentActiveChoiceType = choice.type;
+            Debug.Log($"Entered Action Phase. Target Word: {choice.word}, Type: {choice.type}");
 
             if (healthSystem != null)
             {
                 healthSystem.SetFrozen(false);
                 healthSystem.ResetPatience();
+
+                if (choice.type == ChoiceType.Red)
+                {
+                    // Red choice: Loses 20% patience instantly and drains 1.5x faster
+                    healthSystem.SetBaseDrainMultiplier(1.5f);
+                    healthSystem.ReducePatience(healthSystem.MaxPatience * 0.2f);
+                }
+                else
+                {
+                    // Green choice: Normal
+                    healthSystem.SetBaseDrainMultiplier(1.0f);
+                }
             }
 
             if (morseInputHandler != null)
             {
-                morseInputHandler.SetTargetWord(chosenWord);
+                morseInputHandler.SetTargetWord(choice.word);
             }
         }
 
-        // Called by MorseInputHandler when the word is successfully completed
+        // Called by UI buttons directly
+        public void OnChoiceSelected(ChoiceData choice)
+        {
+            StartActionPhase(choice);
+        }
+
         public void CompleteActionPhase()
         {
             Debug.Log("Action Phase Completed! Returning to Narrative Phase.");
-            EnterNarrativePhase();
             
-            // In a full game, this is where you'd trigger the next narrative dialogue
-            // e.g. DialogueManager.ShowNextLine();
+            if (currentActiveChoiceType == ChoiceType.Red && healthSystem != null)
+            {
+                healthSystem.GainHP(1); // Grants +1 Battery on success
+            }
+
+            currentDialogueIndex++;
+            EnterNarrativePhase();
+        }
+
+        [ContextMenu("Load Dialogues From CSV")]
+        public void LoadDialoguesFromCSV()
+        {
+            if (dialogueCsvFile == null)
+            {
+                Debug.LogError("No CSV file assigned!");
+                return;
+            }
+
+            dialogues.Clear();
+            
+            string[] lines = dialogueCsvFile.text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 1; i < lines.Length; i++) // Skip header
+            {
+                // RegEx to split by comma, ignoring commas inside quotes
+                string[] columns = System.Text.RegularExpressions.Regex.Split(lines[i], ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                
+                if (columns.Length >= 6)
+                {
+                    DialogueEntry entry = new DialogueEntry();
+                    entry.message = columns[1].Trim('\"'); // Remove quotes
+                    
+                    entry.greenChoice = new ChoiceData();
+                    entry.greenChoice.word = columns[2].Trim('\"');
+                    
+                    entry.redChoice = new ChoiceData();
+                    entry.redChoice.word = columns[4].Trim('\"');
+                    
+                    dialogues.Add(entry);
+                }
+            }
+            
+            Debug.Log($"Loaded {dialogues.Count} dialogues from CSV.");
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+#endif
         }
     }
 }
