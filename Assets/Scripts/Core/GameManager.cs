@@ -21,6 +21,7 @@ namespace YanderesFrequency.Core
     [Serializable]
     public class DialogueEntry
     {
+        public int shift = 1;
         [TextArea(2, 4)]
         public string message;
         public ChoiceData greenChoice;
@@ -95,18 +96,21 @@ namespace YanderesFrequency.Core
                 dialogues = new List<DialogueEntry>();
                 dialogues.Add(new DialogueEntry
                 {
+                    shift = 1,
                     message = "Hey baby, you promised to use the pager I gave you.",
                     greenChoice = new ChoiceData { word = "YEP", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "FORCED", type = ChoiceType.Red }
                 });
                 dialogues.Add(new DialogueEntry
                 {
+                    shift = 1,
                     message = "It's so late. Why are you still awake?",
                     greenChoice = new ChoiceData { word = "YOU", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "GAMING", type = ChoiceType.Red }
                 });
                 dialogues.Add(new DialogueEntry
                 {
+                    shift = 1,
                     message = "You're not talking to any other girls, right?",
                     greenChoice = new ChoiceData { word = "NO", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "ANYONE", type = ChoiceType.Red }
@@ -129,8 +133,16 @@ namespace YanderesFrequency.Core
                 foreach (var obj in objectsToDisableOnStart) { if (obj != null) obj.SetActive(false); }
             }
 
-            currentDialogueIndex = (startShift - 1) * 3;
-            if (currentDialogueIndex < 0) currentDialogueIndex = 0;
+            // Find the starting dialogue index based on the startShift debug setting
+            currentDialogueIndex = 0;
+            for (int i = 0; i < dialogues.Count; i++)
+            {
+                if (dialogues[i].shift >= startShift)
+                {
+                    currentDialogueIndex = i;
+                    break;
+                }
+            }
             
             EnterNarrativePhase();
         }
@@ -140,12 +152,6 @@ namespace YanderesFrequency.Core
             CurrentState = GameState.Narrative;
             Debug.Log("Entered Narrative Phase (Time Frozen)");
             
-            int currentShift = (currentDialogueIndex / 3) + 1;
-            if (HazardManager.Instance != null)
-            {
-                HazardManager.Instance.UpdatePhaseBasedOnShift(currentShift);
-            }
-            
             if (healthSystem != null)
             {
                 healthSystem.SetFrozen(true);
@@ -153,6 +159,12 @@ namespace YanderesFrequency.Core
 
             if (currentDialogueIndex < dialogues.Count)
             {
+                int currentShift = dialogues[currentDialogueIndex].shift;
+                if (HazardManager.Instance != null)
+                {
+                    HazardManager.Instance.UpdatePhaseBasedOnShift(currentShift);
+                }
+
                 OnDialogueStarted?.Invoke(dialogues[currentDialogueIndex]);
             }
             else
@@ -247,6 +259,11 @@ namespace YanderesFrequency.Core
                 if (columns.Length >= 6)
                 {
                     DialogueEntry entry = new DialogueEntry();
+                    
+                    int parsedShift = 1;
+                    int.TryParse(columns[0], out parsedShift);
+                    entry.shift = parsedShift;
+
                     entry.message = columns[1].Trim('\"'); // Remove quotes
                     
                     entry.greenChoice = new ChoiceData();
