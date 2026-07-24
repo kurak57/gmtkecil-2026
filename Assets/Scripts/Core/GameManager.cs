@@ -41,6 +41,7 @@ namespace YanderesFrequency.Core
         [SerializeField] private List<DialogueEntry> dialogues = new List<DialogueEntry>();
         private int currentDialogueIndex = 0;
         private ChoiceType currentActiveChoiceType;
+        private bool isGameStarted = false;
 
         [Header("CSV Importer")]
         [SerializeField] private TextAsset dialogueCsvFile;
@@ -51,6 +52,10 @@ namespace YanderesFrequency.Core
         [Header("Game Modes")]
         [SerializeField] private bool isExtremeMode = false;
         public bool IsExtremeMode => isExtremeMode;
+
+        [Header("UI Panels / Objects to Toggle")]
+        [SerializeField] private GameObject[] objectsToEnableOnStart;
+        [SerializeField] private GameObject[] objectsToDisableOnStart;
 
         public event Action<DialogueEntry> OnDialogueStarted;
         public event Action OnGameWon;
@@ -80,7 +85,7 @@ namespace YanderesFrequency.Core
             if (morseInputHandler == null) morseInputHandler = FindObjectOfType<MorseInputHandler>();
 
             LoadDefaultDialoguesIfEmpty();
-            StartGame();
+            // StartGame() is now called by the UI mode buttons
         }
 
         private void LoadDefaultDialoguesIfEmpty()
@@ -111,6 +116,19 @@ namespace YanderesFrequency.Core
 
         public void StartGame()
         {
+            if (isGameStarted) return;
+            isGameStarted = true;
+
+            // Toggle UI/Objects
+            if (objectsToEnableOnStart != null)
+            {
+                foreach (var obj in objectsToEnableOnStart) { if (obj != null) obj.SetActive(true); }
+            }
+            if (objectsToDisableOnStart != null)
+            {
+                foreach (var obj in objectsToDisableOnStart) { if (obj != null) obj.SetActive(false); }
+            }
+
             currentDialogueIndex = (startShift - 1) * 3;
             if (currentDialogueIndex < 0) currentDialogueIndex = 0;
             
@@ -195,14 +213,18 @@ namespace YanderesFrequency.Core
 
         public void SetNormalMode()
         {
+            if (isGameStarted) return;
             isExtremeMode = false;
             Debug.Log("Game Mode: NORMAL (Morse Helper Enabled)");
+            StartGame();
         }
 
         public void SetExtremeMode()
         {
+            if (isGameStarted) return;
             isExtremeMode = true;
             Debug.Log("Game Mode: EXTREME (Morse Helper Disabled)");
+            StartGame();
         }
 
         [ContextMenu("Load Dialogues From CSV")]
