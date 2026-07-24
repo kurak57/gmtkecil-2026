@@ -994,210 +994,240 @@ MonoBehaviour:
   healthSystem: {fileID: 0}
   morseInputHandler: {fileID: 0}
   dialogues:
-  - message: Hey baby...
+  - shift: 1
+    message: Hey baby...
     greenChoice:
       word: HEY
       type: 0
     redChoice:
       word: IGNORE
       type: 0
-  - message: It's so late... Why aren't you replying?
+  - shift: 1
+    message: It's so late... Why aren't you replying?
     greenChoice:
       word: BUSY
       type: 0
     redChoice:
       word: SLEEP
       type: 0
-  - message: You're not talking to anyone else right?
+  - shift: 1
+    message: You're not talking to anyone else right?
     greenChoice:
       word: NO
       type: 0
     redChoice:
       word: YES
       type: 0
-  - message: Your replies are so slow. Are you ignoring me?
+  - shift: 2
+    message: Your replies are so slow. Are you ignoring me?
     greenChoice:
       word: SORRY
       type: 0
     redChoice:
       word: SLOW
       type: 0
-  - message: I know you're reading this. Answer me.
+  - shift: 2
+    message: I know you're reading this. Answer me.
     greenChoice:
       word: YES
       type: 0
     redChoice:
       word: NO
       type: 0
-  - message: I just want to hear your voice...
+  - shift: 2
+    message: I just want to hear your voice...
     greenChoice:
       word: CALL
       type: 0
     redChoice:
       word: CANT
       type: 0
-  - message: I decided to go for a midnight walk. Guess where?
+  - shift: 3
+    message: I decided to go for a midnight walk. Guess where?
     greenChoice:
       word: PARK
       type: 0
     redChoice:
       word: NOWHERE
       type: 0
-  - message: The streets are empty. It's just me and my thoughts of you.
+  - shift: 3
+    message: The streets are empty. It's just me and my thoughts of you.
     greenChoice:
       word: AWW
       type: 0
     redChoice:
       word: CREEPY
       type: 0
-  - message: I'm standing at your street corner now.
+  - shift: 3
+    message: I'm standing at your street corner now.
     greenChoice:
       word: COME
       type: 0
     redChoice:
       word: RETURN
       type: 0
-  - message: Your bedroom light is on. I can see it from here.
+  - shift: 4
+    message: Your bedroom light is on. I can see it from here.
     greenChoice:
       word: HI
       type: 0
     redChoice:
       word: STALKER
       type: 0
-  - message: Why did you close the curtains? Hiding something?
+  - shift: 4
+    message: Why did you close the curtains? Hiding something?
     greenChoice:
       word: COLD
       type: 0
     redChoice:
       word: WINDOW
       type: 0
-  - message: Don't shut me out. We are meant to be together.
+  - shift: 4
+    message: Don't shut me out. We are meant to be together.
     greenChoice:
       word: YES
       type: 0
     redChoice:
       word: INSANE
       type: 0
-  - message: My pager is acting up. Keep the connection alive!
+  - shift: 5
+    message: My pager is acting up. Keep the connection alive!
     greenChoice:
       word: OK
       type: 0
     redChoice:
       word: CANCEL
       type: 0
-  - message: If you cut me off, I'll just come inside.
+  - shift: 5
+    message: If you cut me off, I'll just come inside.
     greenChoice:
       word: WAIT
       type: 0
     redChoice:
       word: PLEASE NO
       type: 0
-  - message: I'm in your front yard. The grass is wet.
+  - shift: 5
+    message: I'm in your front yard. The grass is wet.
     greenChoice:
       word: HUH
       type: 0
     redChoice:
       word: GO AWAY
       type: 0
-  - message: Your front door is locked. Why did you lock it?
+  - shift: 6
+    message: Your front door is locked. Why did you lock it?
     greenChoice:
       word: SAFE
       type: 0
     redChoice:
       word: BLOCK YOU
       type: 0
-  - message: Did you think a lock could keep me away from you?
+  - shift: 6
+    message: Did you think a lock could keep me away from you?
     greenChoice:
       word: NO
       type: 0
     redChoice:
       word: ESCAPE
       type: 0
-  - message: I have a spare key. You forgot I made one.
+  - shift: 6
+    message: I have a spare key. You forgot I made one.
     greenChoice:
       word: HOW
       type: 0
     redChoice:
       word: ILLEGAL
       type: 0
-  - message: I'm inside. It's so dark in your hallway.
+  - shift: 7
+    message: I'm inside. It's so dark in your hallway.
     greenChoice:
       word: HIDE
       type: 0
     redChoice:
       word: SEARCH
       type: 0
-  - message: "Shh\u2026 Let's play hide and seek baby"
+  - shift: 7
+    message: "Shh\u2026 Let's play hide and seek baby"
     greenChoice:
       word: SHH
       type: 0
     redChoice:
       word: SCREAM
       type: 0
-  - message: I can hear your heartbeat from outside your door.
+  - shift: 7
+    message: I can hear your heartbeat from outside your door.
     greenChoice:
       word: CALM
       type: 0
     redChoice:
       word: PANICKING
       type: 0
-  - message: I'm standing right outside your bedroom.
+  - shift: 8
+    message: I'm standing right outside your bedroom.
     greenChoice:
       word: DOOR
       type: 0
     redChoice:
       word: BLOCK IT
       type: 0
-  - message: I wonder where you'll hide...
+  - shift: 8
+    message: I wonder where you'll hide...
     greenChoice:
       word: BED
       type: 0
     redChoice:
       word: NOWHERE
       type: 0
-  - message: If you move even a muscle, I'll punish you.
+  - shift: 8
+    message: If you move even a muscle, I'll punish you.
     greenChoice:
       word: STILL
       type: 0
     redChoice:
       word: CONFRONT
       type: 0
-  - message: Is my pager broken? Or are you playing tricks?
+  - shift: 9
+    message: Is my pager broken? Or are you playing tricks?
     greenChoice:
       word: BUG
       type: 0
     redChoice:
       word: YOURFAULT
       type: 0
-  - message: Read my messages carefully. Don't let your eyes deceive you.
+  - shift: 9
+    message: Read my messages carefully. Don't let your eyes deceive you.
     greenChoice:
       word: READ
       type: 0
     redChoice:
       word: WILL NOT
       type: 0
-  - message: The doorknob is turning. Are you ready?
+  - shift: 9
+    message: The doorknob is turning. Are you ready?
     greenChoice:
       word: YES
       type: 0
     redChoice:
       word: REFUSE
       type: 0
-  - message: The door is jammed! What did you put against it?!
+  - shift: 10
+    message: The door is jammed! What did you put against it?!
     greenChoice:
       word: DESK
       type: 0
     redChoice:
       word: DRESSER
       type: 0
-  - message: You can't keep me away! I love you too much!
+  - shift: 10
+    message: You can't keep me away! I love you too much!
     greenChoice:
       word: STOP
       type: 0
     redChoice:
       word: MANIAC
       type: 0
-  - message: I'M BREAKING IT DOWN! HERE I COME!
+  - shift: 10
+    message: I'M BREAKING IT DOWN! HERE I COME!
     greenChoice:
       word: HUG
       type: 0
