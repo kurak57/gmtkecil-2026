@@ -291,6 +291,9 @@ MonoBehaviour:
   - type: 0
     name: 100
     clip: {fileID: 0}
+  - type: 0
+    name: 110
+    clip: {fileID: 0}
   - type: 1
     name: 200
     clip: {fileID: 8300000, guid: 37dd20d7d2de9435b904bc03b7620fa9, type: 3}
