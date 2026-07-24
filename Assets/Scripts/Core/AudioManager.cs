@@ -5,6 +5,7 @@ using UnityEngine;
 public enum AudioName
 {
     BGMMainMenu = 100,
+    SFXMorse = 200,
     SFXMorseCorrect = 260,
     SFXMorseWrong = 261,
     SFXButtonClick = 270,
