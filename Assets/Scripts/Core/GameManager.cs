@@ -48,6 +48,10 @@ namespace YanderesFrequency.Core
         [Header("Debug")]
         [SerializeField] private int startShift = 1;
 
+        [Header("Game Modes")]
+        [SerializeField] private bool isExtremeMode = false;
+        public bool IsExtremeMode => isExtremeMode;
+
         public event Action<DialogueEntry> OnDialogueStarted;
         public event Action OnGameWon;
 
@@ -187,6 +191,18 @@ namespace YanderesFrequency.Core
 
             currentDialogueIndex++;
             EnterNarrativePhase();
+        }
+
+        public void SetNormalMode()
+        {
+            isExtremeMode = false;
+            Debug.Log("Game Mode: NORMAL (Morse Helper Enabled)");
+        }
+
+        public void SetExtremeMode()
+        {
+            isExtremeMode = true;
+            Debug.Log("Game Mode: EXTREME (Morse Helper Disabled)");
         }
 
         [ContextMenu("Load Dialogues From CSV")]

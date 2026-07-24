@@ -223,7 +223,14 @@ namespace YanderesFrequency.UI
             // Show the morse code for the first letter as a helper
             if (morseHelperText != null && word.Length > 0)
             {
-                morseHelperText.text = $"Expected: {MorseDictionary.GetMorse(word[0])}";
+                if (GameManager.Instance != null && GameManager.Instance.IsExtremeMode)
+                {
+                    morseHelperText.text = "";
+                }
+                else
+                {
+                    morseHelperText.text = $"Expected: {MorseDictionary.GetMorse(word[0])}";
+                }
             }
         }
 
@@ -271,7 +278,11 @@ namespace YanderesFrequency.UI
             // Update helper text to show expected morse for current letter
             if (morseHelperText != null && inputHandler != null)
             {
-                if (letterIndex < currentTargetWord.Length)
+                if (GameManager.Instance != null && GameManager.Instance.IsExtremeMode)
+                {
+                    morseHelperText.text = "";
+                }
+                else if (letterIndex < currentTargetWord.Length)
                 {
                      morseHelperText.text = $"Expected: {MorseDictionary.GetMorse(currentTargetWord[letterIndex])}";
                 }

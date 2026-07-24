@@ -2857,6 +2857,7 @@ MonoBehaviour:
       type: 0
   dialogueCsvFile: {fileID: 4900000, guid: 91704e3c4600e41c49f9f1dda4f4ef6e, type: 3}
   startShift: 1
+  isExtremeMode: 0
 --- !u!4 &1988265876
 Transform:
   m_ObjectHideFlags: 0
