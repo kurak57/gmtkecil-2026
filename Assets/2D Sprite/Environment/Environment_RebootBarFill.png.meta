@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 105d84a39795d46598971f937deff884
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3037579356034726921
+    second: Environment_RebootBarFill_0
+  - first:
+      213: 8949570408051676422
+    second: Environment_RebootBarFill_1
+  - first:
+      213: 8557793135489421677
+    second: Environment_RebootBarFill_2
+  - first:
+      213: -4663553166941736610
+    second: Environment_RebootBarFill_3
+  - first:
+      213: 1983285364104450175
+    second: Environment_RebootBarFill_4
+  - first:
+      213: -233238298549589659
+    second: Environment_RebootBarFill_5
+  - first:
+      213: -5038587475611762178
+    second: Environment_RebootBarFill_6
+  - first:
+      213: -2986819730100427514
+    second: Environment_RebootBarFill_7
+  - first:
+      213: -3734850562340046102
+    second: Environment_RebootBarFill_8
+  - first:
+      213: -8270850852509171485
+    second: Environment_RebootBarFill_9
+  - first:
+      213: 959610437269099835
+    second: Environment_RebootBarFill_10
+  - first:
+      213: -8386477199017727595
+    second: Environment_RebootBarFill_11
+  - first:
+      213: 6729555303770439093
+    second: Environment_RebootBarFill_12
+  - first:
+      213: -8961369450153338268
+    second: Environment_RebootBarFill_13
+  - first:
+      213: 5842026325006639177
+    second: Environment_RebootBarFill_14
+  - first:
+      213: -3086783995467691619
+    second: Environment_RebootBarFill_15
+  - first:
+      213: -6635402752830282405
+    second: Environment_RebootBarFill_16
+  - first:
+      213: -7587436470807023712
+    second: Environment_RebootBarFill_17
+  - first:
+      213: 4052231870286405553
+    second: Environment_RebootBarFill_18
+  - first:
+      213: -2999010174474708655
+    second: Environment_RebootBarFill_19
+  - first:
+      213: -5114481227697108922
+    second: Environment_RebootBarFill_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 9
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c728d9456a72a20800000000000000
+      internalID: 3037579356034726921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 9
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60594488ed2433c70800000000000000
+      internalID: 8949570408051676422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 9
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d619f1ef38363c670800000000000000
+      internalID: 8557793135489421677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_3
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 9
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e513a4d6a1bb74fb0800000000000000
+      internalID: -4663553166941736610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 9
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f705dafd78b068b10800000000000000
+      internalID: 1983285364104450175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_5
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5696fe2d00f53ccf0800000000000000
+      internalID: -233238298549589659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_6
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 11
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1cd62f267531ab0800000000000000
+      internalID: -5038587475611762178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 11
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6056c33c74fac86d0800000000000000
+      internalID: -2986819730100427514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_8
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 11
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeabd8e93352b2cc0800000000000000
+      internalID: -3734850562340046102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_9
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 11
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e044f178f8083d80800000000000000
+      internalID: -8270850852509171485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_10
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 9
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b359e24cb98315d00800000000000000
+      internalID: 959610437269099835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_11
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 9
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599a2a3cb6f3d9b80800000000000000
+      internalID: -8386477199017727595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_12
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 9
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd3591e4ee246d50800000000000000
+      internalID: 6729555303770439093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_13
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a9296e6f1d2a380800000000000000
+      internalID: -8961369450153338268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_14
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 9
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940608e7dfb031150800000000000000
+      internalID: 5842026325006639177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_15
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9989c38f4a8925d0800000000000000
+      internalID: -3086783995467691619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_16
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 10
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55e6e72a505ae3a0800000000000000
+      internalID: -6635402752830282405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_17
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 11
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af24b1dab204b690800000000000000
+      internalID: -7587436470807023712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_18
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 11
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf10f79a6b6c3830800000000000000
+      internalID: 4052231870286405553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_19
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 11
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15917a0c2206166d0800000000000000
+      internalID: -2999010174474708655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_RebootBarFill_20
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 11
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648c5bccb66b509b0800000000000000
+      internalID: -5114481227697108922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Environment_RebootBarFill_0: 3037579356034726921
+      Environment_RebootBarFill_1: 8949570408051676422
+      Environment_RebootBarFill_10: 959610437269099835
+      Environment_RebootBarFill_11: -8386477199017727595
+      Environment_RebootBarFill_12: 6729555303770439093
+      Environment_RebootBarFill_13: -8961369450153338268
+      Environment_RebootBarFill_14: 5842026325006639177
+      Environment_RebootBarFill_15: -3086783995467691619
+      Environment_RebootBarFill_16: -6635402752830282405
+      Environment_RebootBarFill_17: -7587436470807023712
+      Environment_RebootBarFill_18: 4052231870286405553
+      Environment_RebootBarFill_19: -2999010174474708655
+      Environment_RebootBarFill_2: 8557793135489421677
+      Environment_RebootBarFill_20: -5114481227697108922
+      Environment_RebootBarFill_3: -4663553166941736610
+      Environment_RebootBarFill_4: 1983285364104450175
+      Environment_RebootBarFill_5: -233238298549589659
+      Environment_RebootBarFill_6: -5038587475611762178
+      Environment_RebootBarFill_7: -2986819730100427514
+      Environment_RebootBarFill_8: -3734850562340046102
+      Environment_RebootBarFill_9: -8270850852509171485
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
