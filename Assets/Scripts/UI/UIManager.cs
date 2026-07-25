@@ -9,7 +9,8 @@ namespace YanderesFrequency.UI
     public class UIManager : MonoBehaviour
     {
         [Header("UI References")]
-        [SerializeField] private TextMeshProUGUI hpText; // Could be images of candles/battery in full game
+        [SerializeField] private TextMeshProUGUI hpText; // Obsolete (kept for compatibility)
+        [SerializeField] private Image hpImageBar; // Used for the heart images (Filled Horizontal)
         [SerializeField] private Image patienceBar;
         [SerializeField] private TextMeshProUGUI targetWordText;
         [SerializeField] private TextMeshProUGUI currentInputText;
@@ -21,6 +22,12 @@ namespace YanderesFrequency.UI
         [SerializeField] private GameObject hazardAlertPanel;
         [SerializeField] private TextMeshProUGUI hazardText;
         [SerializeField] private Image hazardProgressBar;
+
+        [Header("Word Highlight Colors")]
+        [SerializeField] private Color typedLetterColor = Color.green;
+        [SerializeField] private Color currentLetterColor = Color.white;
+        [SerializeField] private Color untypedLetterColor = Color.red;
+        [SerializeField] private Color currentInputColor = Color.black;
 
         [Header("Choice Buttons")]
         [SerializeField] private GameObject choicesPanel;
@@ -229,7 +236,7 @@ namespace YanderesFrequency.UI
                 }
                 else
                 {
-                    morseHelperText.text = $"Expected: {MorseDictionary.GetMorse(word[0])}";
+                    morseHelperText.text = $"{MorseDictionary.GetMorse(word[0])}";
                 }
             }
         }
@@ -262,8 +269,12 @@ namespace YanderesFrequency.UI
                 after = new string(arr);
             }
 
-            // Highlight the current letter with yellow color, bold, and underline
-            targetWordText.text = $"{before}<color=yellow><u><b>{current}</b></u></color>{after}";
+            // Highlight colors based on inspector settings
+            string hexTyped = ColorUtility.ToHtmlStringRGBA(typedLetterColor);
+            string hexCurrent = ColorUtility.ToHtmlStringRGBA(currentLetterColor);
+            string hexUntyped = ColorUtility.ToHtmlStringRGBA(untypedLetterColor);
+
+            targetWordText.text = $"<color=#{hexTyped}>{before}</color><color=#{hexCurrent}><u><b>{current}</b></u></color><color=#{hexUntyped}>{after}</color>";
         }
 
         private void UpdateInputProgressUI(int letterIndex, string currentInput)
@@ -271,6 +282,7 @@ namespace YanderesFrequency.UI
             if (currentInputText != null)
             {
                 currentInputText.text = currentInput;
+                currentInputText.color = currentInputColor;
             }
 
             UpdateWordHighlight(letterIndex);
@@ -284,7 +296,7 @@ namespace YanderesFrequency.UI
                 }
                 else if (letterIndex < currentTargetWord.Length)
                 {
-                     morseHelperText.text = $"Expected: {MorseDictionary.GetMorse(currentTargetWord[letterIndex])}";
+                     morseHelperText.text = $"{MorseDictionary.GetMorse(currentTargetWord[letterIndex])}";
                 }
             }
         }
@@ -301,6 +313,10 @@ namespace YanderesFrequency.UI
             if (hpText != null)
             {
                 hpText.text = $"Battery/HP: {hp}";
+            }
+            if (hpImageBar != null && healthSystem != null)
+            {
+                hpImageBar.fillAmount = (float)hp / healthSystem.MaxHP;
             }
         }
 

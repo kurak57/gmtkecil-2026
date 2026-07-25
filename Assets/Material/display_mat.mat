@@ -42,20 +42,20 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _Distortion: 0.46
+    - _Distortion: 0.36
     - _EnableExternalAlpha: 0
-    - _ScanlineAmount: 0
-    - _ScanlineThickness: 0.18
+    - _ScanlineAmount: 306
+    - _ScanlineThickness: 0.14
     - _Stencil: 0
     - _StencilComp: 0
     - _StencilOp: 0
     - _StencilReadMask: 0
     - _StencilWriteMask: 0
     - _ZWrite: 0
-    - _Zoom: 1.4
+    - _Zoom: 1.17
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ScanlineColor: {r: 0, g: 0.4245283, b: 0.046698067, a: 0.5}
+    - _ScanlineColor: {r: 0, g: 0.42452827, b: 0.04669805, a: 0.16862746}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

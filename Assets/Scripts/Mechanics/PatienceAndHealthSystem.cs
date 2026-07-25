@@ -7,6 +7,7 @@ namespace YanderesFrequency.Mechanics
     {
         [Header("Health (Battery)")]
         [SerializeField] private int maxHP = 5;
+        public int MaxHP => maxHP;
         private int currentHP;
 
         [Header("Patience (Kesabaran)")]
@@ -21,6 +22,8 @@ namespace YanderesFrequency.Mechanics
         public event Action<int> OnHPChanged;
         public event Action<float, float> OnPatienceChanged; // current, max
         public event Action OnGameOver;
+        public event Action<bool> OnHesitationStateChanged;
+        public event Action OnDamageTaken;
 
         public float MaxPatience => maxPatience;
 
@@ -57,7 +60,11 @@ namespace YanderesFrequency.Mechanics
 
         public void SetHesitating(bool hesitating)
         {
-            isHesitating = hesitating;
+            if (isHesitating != hesitating)
+            {
+                isHesitating = hesitating;
+                OnHesitationStateChanged?.Invoke(hesitating);
+            }
         }
 
         public void SetBaseDrainMultiplier(float multiplier)
@@ -95,6 +102,7 @@ namespace YanderesFrequency.Mechanics
 
             currentHP--;
             OnHPChanged?.Invoke(currentHP);
+            OnDamageTaken?.Invoke();
 
             if (currentHP <= 0)
             {

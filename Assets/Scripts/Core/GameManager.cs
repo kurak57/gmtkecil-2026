@@ -42,6 +42,7 @@ namespace YanderesFrequency.Core
         [SerializeField] private List<DialogueEntry> dialogues = new List<DialogueEntry>();
         private int currentDialogueIndex = 0;
         private ChoiceType currentActiveChoiceType;
+        public ChoiceType CurrentActiveChoiceType => currentActiveChoiceType;
         private bool isGameStarted = false;
 
         [Header("CSV Importer")]
