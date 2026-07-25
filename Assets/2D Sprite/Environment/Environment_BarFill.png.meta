@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 4562e3b1230a54632a832fc8a3d6615a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4366129976868464007
+    second: Environment_BarFill_0
+  - first:
+      213: -3683491257239398685
+    second: Environment_BarFill_1
+  - first:
+      213: -3385436669484627012
+    second: Environment_BarFill_2
+  - first:
+      213: 9025407720517167931
+    second: Environment_BarFill_3
+  - first:
+      213: 7066015027811498386
+    second: Environment_BarFill_4
+  - first:
+      213: 7997583843009479532
+    second: Environment_BarFill_5
+  - first:
+      213: -895560752267173975
+    second: Environment_BarFill_6
+  - first:
+      213: 6835626560088009314
+    second: Environment_BarFill_7
+  - first:
+      213: 4786662879901079503
+    second: Environment_BarFill_8
+  - first:
+      213: -9024065617127777641
+    second: Environment_BarFill_9
+  - first:
+      213: -7609530689077550190
+    second: Environment_BarFill_10
+  - first:
+      213: -1648903789600267685
+    second: Environment_BarFill_11
+  - first:
+      213: 2348045453498034757
+    second: Environment_BarFill_12
+  - first:
+      213: 7062679226057150090
+    second: Environment_BarFill_13
+  - first:
+      213: 2004572498324308240
+    second: Environment_BarFill_14
+  - first:
+      213: 8082819474565914556
+    second: Environment_BarFill_15
+  - first:
+      213: -1963886569597024521
+    second: Environment_BarFill_16
+  - first:
+      213: 8746882807329037752
+    second: Environment_BarFill_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Environment_BarFill_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785ed6ac41c979c30800000000000000
+      internalID: 4366129976868464007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 18
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e61dfea73c91ecc0800000000000000
+      internalID: -3683491257239398685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb89c139438401d0800000000000000
+      internalID: -3385436669484627012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_3
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 18
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b6e7ec080b04d70800000000000000
+      internalID: 9025407720517167931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 299b64efa378f0260800000000000000
+      internalID: 7066015027811498386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 18
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63cbf7d1202dfe60800000000000000
+      internalID: 7997583843009479532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_6
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 19
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af555e9d345293f0800000000000000
+      internalID: -895560752267173975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_7
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 19
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a6543c3260dde50800000000000000
+      internalID: 6835626560088009314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_8
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 19
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc75d084784ad6240800000000000000
+      internalID: 4786662879901079503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_9
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 19
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a584df12414c280800000000000000
+      internalID: -9024065617127777641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_10
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 18
+        width: 42
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2936912c724856690800000000000000
+      internalID: -7609530689077550190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_11
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 18
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52a4185dbaed19e0800000000000000
+      internalID: -1648903789600267685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_12
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54aa83446eee59020800000000000000
+      internalID: 2348045453498034757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_13
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 19
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8ecaaf165da30260800000000000000
+      internalID: 7062679226057150090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_14
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0114329011ca1db10800000000000000
+      internalID: 2004572498324308240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_15
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 18
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf5c1dcc71fb2070800000000000000
+      internalID: 8082819474565914556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_16
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 18
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f64200f19fdeb4e0800000000000000
+      internalID: -1963886569597024521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Environment_BarFill_17
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 19
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd91def19b236970800000000000000
+      internalID: 8746882807329037752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Environment_BarFill_0: 4366129976868464007
+      Environment_BarFill_1: -3683491257239398685
+      Environment_BarFill_10: -7609530689077550190
+      Environment_BarFill_11: -1648903789600267685
+      Environment_BarFill_12: 2348045453498034757
+      Environment_BarFill_13: 7062679226057150090
+      Environment_BarFill_14: 2004572498324308240
+      Environment_BarFill_15: 8082819474565914556
+      Environment_BarFill_16: -1963886569597024521
+      Environment_BarFill_17: 8746882807329037752
+      Environment_BarFill_2: -3385436669484627012
+      Environment_BarFill_3: 9025407720517167931
+      Environment_BarFill_4: 7066015027811498386
+      Environment_BarFill_5: 7997583843009479532
+      Environment_BarFill_6: -895560752267173975
+      Environment_BarFill_7: 6835626560088009314
+      Environment_BarFill_8: 4786662879901079503
+      Environment_BarFill_9: -9024065617127777641
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
