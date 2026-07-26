@@ -64,7 +64,8 @@ namespace YanderesFrequency.UI
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.OnDialogueStarted += HandleDialogueStarted;
-                GameManager.Instance.OnGameWon += HandleGameWon;
+                GameManager.Instance.OnTrueEnding += HandleTrueEnding;
+                GameManager.Instance.OnBadEnding += HandleBadEnding;
             }
 
             if (hazardAlertPanel != null) hazardAlertPanel.SetActive(false);
@@ -153,7 +154,8 @@ namespace YanderesFrequency.UI
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.OnDialogueStarted -= HandleDialogueStarted;
-                GameManager.Instance.OnGameWon -= HandleGameWon;
+                GameManager.Instance.OnTrueEnding -= HandleTrueEnding;
+                GameManager.Instance.OnBadEnding -= HandleBadEnding;
             }
         }
 
@@ -223,7 +225,8 @@ namespace YanderesFrequency.UI
         private void InitializeWordUI(string word)
         {
             currentTargetWord = word;
-            UpdateWordHighlight(0);
+            int startIndex = (inputHandler != null) ? inputHandler.CurrentLetterIndex : 0;
+            UpdateWordHighlight(startIndex);
             
             if (currentInputText != null) currentInputText.text = "";
             
@@ -335,10 +338,17 @@ namespace YanderesFrequency.UI
             choicesPanel.SetActive(false);
         }
 
-        private void HandleGameWon()
+        private void HandleTrueEnding()
         {
             if (targetWordText != null) targetWordText.text = "YOU SURVIVED";
-            if (narrativeMessageText != null) narrativeMessageText.text = "Shift completed.";
+            if (narrativeMessageText != null) narrativeMessageText.text = "The police arrived. She fled into the night...\nYou are safe. (True Ending)";
+            choicesPanel.SetActive(false);
+        }
+
+        private void HandleBadEnding()
+        {
+            if (targetWordText != null) targetWordText.text = "DOOR OPENED";
+            if (narrativeMessageText != null) narrativeMessageText.text = "She is inside. There is nowhere to run...\nForever Yours. (Bad Ending)";
             choicesPanel.SetActive(false);
         }
     }

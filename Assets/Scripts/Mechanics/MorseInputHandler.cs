@@ -79,10 +79,17 @@ namespace YanderesFrequency.Mechanics
 
         private void UpdateExpectedMorse()
         {
-            if (currentLetterIndex < targetWord.Length)
+            while (currentLetterIndex < targetWord.Length)
             {
                 expectedMorseForLetter = MorseDictionary.GetMorse(targetWord[currentLetterIndex]);
+                if (!string.IsNullOrEmpty(expectedMorseForLetter))
+                {
+                    return; // Found a valid letter
+                }
+                // Character doesn't exist in Morse dictionary (like a space), skip it
+                currentLetterIndex++;
             }
+            expectedMorseForLetter = ""; // No more valid letters
         }
 
         private void Update()
@@ -265,6 +272,8 @@ namespace YanderesFrequency.Mechanics
                 currentMorseInput = "";
                 healthSystem.ResetPatience(); // Reset patience on correct letter
 
+                UpdateExpectedMorse();
+
                 if (currentLetterIndex >= targetWord.Length)
                 {
                     // Word completed!
@@ -274,7 +283,6 @@ namespace YanderesFrequency.Mechanics
                 }
                 else
                 {
-                    UpdateExpectedMorse();
                     OnLetterProgress?.Invoke(currentLetterIndex, currentMorseInput);
                 }
             }

@@ -2079,9 +2079,9 @@ RectTransform:
   m_Father: {fileID: 8992789556614646358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 42.67627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250431035
 MonoBehaviour:
@@ -3053,6 +3053,7 @@ MonoBehaviour:
   maxHP: 5
   maxPatience: 100
   baseDrainRate: 10
+  disableTimerForDebug: 0
 --- !u!114 &1988265875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,248 +3069,392 @@ MonoBehaviour:
   healthSystem: {fileID: 0}
   morseInputHandler: {fileID: 0}
   dialogues:
-  - shift: 1
-    message: Hey baby...
+  - phase: 1
+    message: Hey
     greenChoice:
-      word: HEY
+      word: HI
       type: 0
     redChoice:
-      word: IGNORE
-      type: 0
-  - shift: 1
-    message: It's so late... Why aren't you replying?
+      word: HELLO
+      type: 1
+  - phase: 1
+    message: Have u eaten yet?
     greenChoice:
-      word: BUSY
-      type: 0
-    redChoice:
-      word: SLEEP
-      type: 0
-  - shift: 1
-    message: You're not talking to anyone else right?
-    greenChoice:
-      word: NO
-      type: 0
-    redChoice:
       word: YES
       type: 0
-  - shift: 2
-    message: Your replies are so slow. Are you ignoring me?
+    redChoice:
+      word: WHYASK
+      type: 1
+  - phase: 1
+    message: What r u doing?
+    greenChoice:
+      word: WORK
+      type: 0
+    redChoice:
+      word: NOTHING
+      type: 1
+  - phase: 1
+    message: I miss you.
+    greenChoice:
+      word: METOO
+      type: 0
+    redChoice:
+      word: IDONT
+      type: 1
+  - phase: 1
+    message: Reply to me, ok? :)
+    greenChoice:
+      word: OK
+      type: 0
+    redChoice:
+      word: MAYBE
+      type: 1
+  - phase: 1
+    message: Thank u
+    greenChoice:
+      word: LOVEU
+      type: 0
+    redChoice:
+      word: BYE
+      type: 1
+  - phase: 1
+    message: Still busy?
+    greenChoice:
+      word: ABIT
+      type: 0
+    redChoice:
+      word: VERYBUSY
+      type: 1
+  - phase: 1
+    message: U R taking a while...
     greenChoice:
       word: SORRY
       type: 0
     redChoice:
-      word: SLOW
+      word: DONTCARE
+      type: 1
+  - phase: 1
+    message: been waiting for U...
+    greenChoice:
+      word: THANKU
       type: 0
-  - shift: 2
-    message: I know you're reading this. Answer me.
+    redChoice:
+      word: IKNOW
+      type: 1
+  - phase: 1
+    message: Am I bothering u?
+    greenChoice:
+      word: NO
+      type: 0
+    redChoice:
+      word: YES
+      type: 1
+  - phase: 1
+    message: R u there?
+    greenChoice:
+      word: YES
+      type: 0
+    redChoice:
+      word: IAMNOT
+      type: 1
+  - phase: 1
+    message: Why did U take so long?
+    greenChoice:
+      word: WORK
+      type: 0
+    redChoice:
+      word: WHYCARE
+      type: 1
+  - phase: 1
+    message: U saw my message, did u?
     greenChoice:
       word: YES
       type: 0
     redChoice:
       word: NO
-      type: 0
-  - shift: 2
-    message: I just want to hear your voice...
+      type: 1
+  - phase: 2
+    message: R U IGNORING ME?
     greenChoice:
-      word: CALL
+      word: WHAT
+      type: 0
+    redChoice:
+      word: PROVEIT
+      type: 1
+  - phase: 2
+    message: DONT LIE TO ME
+    greenChoice:
+      word: IWONT
+      type: 0
+    redChoice:
+      word: WHATEVER
+      type: 1
+  - phase: 2
+    message: Please reply...
+    greenChoice:
+      word: IMHERE
+      type: 0
+    redChoice:
+      word: STOP
+      type: 1
+  - phase: 2
+    message: I've been waiting for u all this time.
+    greenChoice:
+      word: SORRY
+      type: 0
+    redChoice:
+      word: WAIT
+      type: 1
+  - phase: 2
+    message: u r never this slow.
+    greenChoice:
+      word: MYBAD
+      type: 0
+    redChoice:
+      word: BUSY
+      type: 1
+  - phase: 2
+    message: R u with someone else?
+    greenChoice:
+      word: NO
+      type: 0
+    redChoice:
+      word: MAYBE
+      type: 1
+  - phase: 2
+    message: I just want a reply...
+    greenChoice:
+      word: IMHERE
+      type: 0
+    redChoice:
+      word: LATER
+      type: 1
+  - phase: 2
+    message: I told u... I don't like it when u disappear.
+    greenChoice:
+      word: SORRY
+      type: 0
+    redChoice:
+      word: CALMDOWN
+      type: 1
+  - phase: 2
+    message: If u r busy, tell me.
+    greenChoice:
+      word: IWILL
       type: 0
     redChoice:
       word: CANT
+      type: 1
+  - phase: 2
+    message: Just don't leave me wondering.
+    greenChoice:
+      word: OKAY
       type: 0
-  - shift: 3
-    message: I decided to go for a midnight walk. Guess where?
+    redChoice:
+      word: LEAVEME
+      type: 1
+  - phase: 2
+    message: I've been thinking about u all day.
+    greenChoice:
+      word: MISSUTOO
+      type: 0
+    redChoice:
+      word: WHY
+      type: 1
+  - phase: 2
+    message: But u can't even reply once.
+    greenChoice:
+      word: IMSORRY
+      type: 0
+    redChoice:
+      word: IMBUSY
+      type: 1
+  - phase: 2
+    message: Am I rlly that unimportant to u?
+    greenChoice:
+      word: NEVER
+      type: 0
+    redChoice:
+      word: IDONTKNOW
+      type: 1
+  - phase: 2
+    message: I'm scared of losing u...
+    greenChoice:
+      word: IMHERE
+      type: 0
+    redChoice:
+      word: STOP
+      type: 1
+  - phase: 3
+    message: pager breaks outside.
+    greenChoice:
+      word: BUG
+      type: 0
+    redChoice:
+      word: URFAULT
+      type: 1
+  - phase: 3
+    message: Im going for a walk. Guess where?
     greenChoice:
       word: PARK
       type: 0
     redChoice:
       word: NOWHERE
-      type: 0
-  - shift: 3
-    message: The streets are empty. It's just me and my thoughts of you.
+      type: 1
+  - phase: 3
+    message: I'm standing at ur street.
     greenChoice:
-      word: AWW
+      word: WHY
       type: 0
     redChoice:
-      word: CREEPY
-      type: 0
-  - shift: 3
-    message: I'm standing at your street corner now.
-    greenChoice:
-      word: COME
-      type: 0
-    redChoice:
-      word: RETURN
-      type: 0
-  - shift: 4
-    message: Your bedroom light is on. I can see it from here.
+      word: GOAWAY
+      type: 1
+  - phase: 3
+    message: Your bedroom light is on.
     greenChoice:
       word: HI
       type: 0
     redChoice:
       word: STALKER
-      type: 0
-  - shift: 4
-    message: Why did you close the curtains? Hiding something?
+      type: 1
+  - phase: 3
+    message: Why did u close the curtains?
     greenChoice:
       word: COLD
       type: 0
     redChoice:
       word: WINDOW
-      type: 0
-  - shift: 4
-    message: Don't shut me out. We are meant to be together.
+      type: 1
+  - phase: 3
+    message: Don't shut me out baby
     greenChoice:
       word: YES
       type: 0
     redChoice:
-      word: INSANE
-      type: 0
-  - shift: 5
-    message: My pager is acting up. Keep the connection alive!
-    greenChoice:
-      word: OK
-      type: 0
-    redChoice:
-      word: CANCEL
-      type: 0
-  - shift: 5
-    message: If you cut me off, I'll just come inside.
+      word: NOWAY
+      type: 1
+  - phase: 3
+    message: If u cut me off, I'll just come inside.
     greenChoice:
       word: WAIT
       type: 0
     redChoice:
-      word: PLEASE NO
-      type: 0
-  - shift: 5
-    message: I'm in your front yard. The grass is wet.
+      word: PLEASENO
+      type: 1
+  - phase: 3
+    message: I'm in ur front yard. The grass is wet.
     greenChoice:
       word: HUH
       type: 0
     redChoice:
-      word: GO AWAY
-      type: 0
-  - shift: 6
-    message: Your front door is locked. Why did you lock it?
+      word: GOAWAY
+      type: 1
+  - phase: 3
+    message: Why did u lock ur door?
     greenChoice:
       word: SAFE
       type: 0
     redChoice:
-      word: BLOCK YOU
-      type: 0
-  - shift: 6
-    message: Did you think a lock could keep me away from you?
-    greenChoice:
-      word: NO
-      type: 0
-    redChoice:
-      word: ESCAPE
-      type: 0
-  - shift: 6
-    message: I have a spare key. You forgot I made one.
+      word: BLOCKYOU
+      type: 1
+  - phase: 3
+    message: I have a spare key. I made it.
     greenChoice:
       word: HOW
       type: 0
     redChoice:
       word: ILLEGAL
-      type: 0
-  - shift: 7
-    message: I'm inside. It's so dark in your hallway.
+      type: 1
+  - phase: 4
+    message: I'm inside. ur hallway is dark.
     greenChoice:
       word: HIDE
       type: 0
     redChoice:
       word: SEARCH
-      type: 0
-  - shift: 7
-    message: "Shh\u2026 Let's play hide and seek baby"
-    greenChoice:
-      word: SHH
-      type: 0
-    redChoice:
-      word: SCREAM
-      type: 0
-  - shift: 7
-    message: I can hear your heartbeat from outside your door.
+      type: 1
+  - phase: 4
+    message: I can hear ur heartbeat from here.
     greenChoice:
       word: CALM
       type: 0
     redChoice:
-      word: PANICKING
+      word: SCARED
+      type: 1
+  - phase: 4
+    message: dont call the police baby. Its just u and me.
+    greenChoice:
+      word: US
       type: 0
-  - shift: 8
-    message: I'm standing right outside your bedroom.
+    redChoice:
+      word: POLICE
+      type: 1
+  - phase: 4
+    message: I'm standing right outside ur door
     greenChoice:
       word: DOOR
       type: 0
     redChoice:
-      word: BLOCK IT
-      type: 0
-  - shift: 8
-    message: I wonder where you'll hide...
+      word: BLOCKIT
+      type: 1
+  - phase: 4
+    message: I wonder where u r hiding...
     greenChoice:
       word: BED
       type: 0
     redChoice:
       word: NOWHERE
-      type: 0
-  - shift: 8
-    message: If you move even a muscle, I'll punish you.
+      type: 1
+  - phase: 5
+    message: If u move even a muscle, I'll punish u.
     greenChoice:
       word: STILL
       type: 0
     redChoice:
       word: CONFRONT
-      type: 0
-  - shift: 9
-    message: Is my pager broken? Or are you playing tricks?
+      type: 1
+  - phase: 5
+    message: Is this ur room?
     greenChoice:
-      word: BUG
+      word: YES
       type: 0
     redChoice:
-      word: YOURFAULT
-      type: 0
-  - shift: 9
-    message: Read my messages carefully. Don't let your eyes deceive you.
-    greenChoice:
-      word: READ
-      type: 0
-    redChoice:
-      word: WILL NOT
-      type: 0
-  - shift: 9
-    message: The doorknob is turning. Are you ready?
+      word: GOAWAY
+      type: 1
+  - phase: 5
+    message: The doorknob is turning. R u ready?
     greenChoice:
       word: YES
       type: 0
     redChoice:
       word: REFUSE
-      type: 0
-  - shift: 10
+      type: 1
+  - phase: 5
     message: The door is jammed! What did you put against it?!
     greenChoice:
       word: DESK
       type: 0
     redChoice:
       word: DRESSER
-      type: 0
-  - shift: 10
+      type: 1
+  - phase: 5
     message: You can't keep me away! I love you too much!
     greenChoice:
       word: STOP
       type: 0
     redChoice:
-      word: MANIAC
-      type: 0
-  - shift: 10
+      word: PLEASENO
+      type: 1
+  - phase: 5
     message: I'M BREAKING IT DOWN! HERE I COME!
     greenChoice:
       word: HUG
       type: 0
     redChoice:
       word: SURVIVE
-      type: 0
-  dialogueCsvFile: {fileID: 4900000, guid: 91704e3c4600e41c49f9f1dda4f4ef6e, type: 3}
-  startShift: 1
+      type: 1
+  dialogueCsvFile: {fileID: 4900000, guid: 52d955396cf3b4a2ea53c7fbf211ea28, type: 3}
+  startIndex: 46
   isExtremeMode: 0
   objectsToEnableOnStart:
   - {fileID: 5732696807303695842}
@@ -4886,7 +5031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5750169266751498833
 RectTransform:
   m_ObjectHideFlags: 0

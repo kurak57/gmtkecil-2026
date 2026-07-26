@@ -1,0 +1,49 @@
+Phase,Incoming Message,Green Choice (Safe),Red Choice (Risk)
+1,Hey,HI,HELLO
+1,Have u eaten yet?,YES,WHYASK
+1,What r u doing?,WORK,NOTHING
+1,I miss you.,METOO,IDONT
+1,"Reply to me, ok? :)",OK,MAYBE
+1,Thank u,LOVEU,BYE
+1,Still busy?,ABIT,VERYBUSY
+1,U R taking a while...,SORRY,DONTCARE
+1,been waiting for U...,THANKU,IKNOW
+1,Am I bothering u?,NO,YES
+1,R u there?,YES,IAMNOT
+1,Why did U take so long?,WORK,WHYCARE
+1,"U saw my message, did u?",YES,NO
+2,R U IGNORING ME?,WHAT,PROVEIT
+2,DONT LIE TO ME,IWONT,WHATEVER
+2,Please reply...,IMHERE,STOP
+2,I've been waiting for u all this time.,SORRY,WAIT
+2,u r never this slow.,MYBAD,BUSY
+2,R u with someone else?,NO,MAYBE
+2,I just want a reply...,IMHERE,LATER
+2,I told u... I don't like it when u disappear.,SORRY,CALMDOWN
+2,"If u r busy, tell me.",IWILL,CANT
+2,Just don't leave me wondering.,OKAY,LEAVEME
+2,I've been thinking about u all day.,MISSUTOO,WHY
+2,But u can't even reply once.,IMSORRY,IMBUSY
+2,Am I rlly that unimportant to u?,NEVER,IDONTKNOW
+2,I'm scared of losing u...,IMHERE,STOP
+3,pager breaks outside.,BUG,URFAULT
+3,Im going for a walk. Guess where?,PARK,NOWHERE
+3,I'm standing at ur street.,WHY,GOAWAY
+3,Your bedroom light is on.,HI,STALKER
+3,Why did u close the curtains?,COLD,WINDOW
+3,Don't shut me out baby,YES,NOWAY
+3,"If u cut me off, I'll just come inside.",WAIT,PLEASENO
+3,I'm in ur front yard. The grass is wet.,HUH,GOAWAY
+3,Why did u lock ur door?,SAFE,BLOCKYOU
+3,I have a spare key. I made it.,HOW,ILLEGAL
+4,I'm inside. ur hallway is dark.,HIDE,SEARCH
+4,I can hear ur heartbeat from here.,CALM,SCARED
+4,dont call the police baby. Its just u and me.,US,POLICE
+4,I'm standing right outside ur door,DOOR,BLOCKIT
+4,I wonder where u r hiding...,BED,NOWHERE
+5,"If u move even a muscle, I'll punish u.",STILL,CONFRONT
+5,Is this ur room?,YES,GOAWAY
+5,The doorknob is turning. R u ready?,YES,REFUSE
+5,The door is jammed! What did you put against it?!,DESK,DRESSER
+5,You can't keep me away! I love you too much!,STOP,PLEASENO
+5,I'M BREAKING IT DOWN! HERE I COME!,HUG,SURVIVE

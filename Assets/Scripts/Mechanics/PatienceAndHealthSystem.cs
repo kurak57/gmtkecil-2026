@@ -19,6 +19,9 @@ namespace YanderesFrequency.Mechanics
         private bool isHesitating = false;
         private float baseDrainMultiplier = 1f;
 
+        [Header("Debug")]
+        [SerializeField] private bool disableTimerForDebug = false;
+
         public event Action<int> OnHPChanged;
         public event Action<float, float> OnPatienceChanged; // current, max
         public event Action OnGameOver;
@@ -38,7 +41,7 @@ namespace YanderesFrequency.Mechanics
 
         private void Update()
         {
-            if (isFrozen || currentPatience <= 0) return;
+            if (isFrozen || currentPatience <= 0 || disableTimerForDebug) return;
 
             // Drains 2x faster if hesitating, and applies baseDrainMultiplier (for Red choices)
             float drainMultiplier = (isHesitating ? 2f : 1f) * baseDrainMultiplier;

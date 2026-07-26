@@ -16,12 +16,27 @@ namespace YanderesFrequency.Core
     {
         public string word;
         public ChoiceType type;
+
+        // Returns only the word part before any parenthesis, e.g. "HI (Greeting)" returns "HI"
+        public string ParsedWord 
+        {
+            get 
+            {
+                if (string.IsNullOrEmpty(word)) return "";
+                int bracketIndex = word.IndexOf('(');
+                if (bracketIndex >= 0)
+                {
+                    return word.Substring(0, bracketIndex).Trim();
+                }
+                return word.Trim();
+            }
+        }
     }
 
     [Serializable]
     public class DialogueEntry
     {
-        public int shift = 1;
+        public int phase = 1;
         [TextArea(2, 4)]
         public string message;
         public ChoiceData greenChoice;
@@ -45,11 +60,14 @@ namespace YanderesFrequency.Core
         public ChoiceType CurrentActiveChoiceType => currentActiveChoiceType;
         private bool isGameStarted = false;
 
+        private int redChoicesCount = 0;
+        private bool mistakeMadeThisWord = false;
+
         [Header("CSV Importer")]
         [SerializeField] private TextAsset dialogueCsvFile;
 
         [Header("Debug")]
-        [SerializeField] private int startShift = 1;
+        [SerializeField] private int startIndex = 0; // Index to start the dialogues from
 
         [Header("Game Modes")]
         [SerializeField] private bool isExtremeMode = false;
@@ -60,7 +78,8 @@ namespace YanderesFrequency.Core
         [SerializeField] private GameObject[] objectsToDisableOnStart;
 
         public event Action<DialogueEntry> OnDialogueStarted;
-        public event Action OnGameWon;
+        public event Action OnTrueEnding;
+        public event Action OnBadEnding;
 
         private void Awake()
         {
@@ -86,8 +105,26 @@ namespace YanderesFrequency.Core
             if (healthSystem == null) healthSystem = FindObjectOfType<PatienceAndHealthSystem>();
             if (morseInputHandler == null) morseInputHandler = FindObjectOfType<MorseInputHandler>();
 
+            if (healthSystem != null)
+            {
+                healthSystem.OnDamageTaken += HandleDamageTaken;
+            }
+
             LoadDefaultDialoguesIfEmpty();
             // StartGame() is now called by the UI mode buttons
+        }
+
+        private void OnDestroy()
+        {
+            if (healthSystem != null)
+            {
+                healthSystem.OnDamageTaken -= HandleDamageTaken;
+            }
+        }
+
+        private void HandleDamageTaken()
+        {
+            mistakeMadeThisWord = true;
         }
 
         private void LoadDefaultDialoguesIfEmpty()
@@ -97,21 +134,21 @@ namespace YanderesFrequency.Core
                 dialogues = new List<DialogueEntry>();
                 dialogues.Add(new DialogueEntry
                 {
-                    shift = 1,
+                    phase = 1,
                     message = "Hey baby, you promised to use the pager I gave you.",
                     greenChoice = new ChoiceData { word = "YEP", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "FORCED", type = ChoiceType.Red }
                 });
                 dialogues.Add(new DialogueEntry
                 {
-                    shift = 1,
+                    phase = 1,
                     message = "It's so late. Why are you still awake?",
                     greenChoice = new ChoiceData { word = "YOU", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "GAMING", type = ChoiceType.Red }
                 });
                 dialogues.Add(new DialogueEntry
                 {
-                    shift = 1,
+                    phase = 1,
                     message = "You're not talking to any other girls, right?",
                     greenChoice = new ChoiceData { word = "NO", type = ChoiceType.Green },
                     redChoice = new ChoiceData { word = "ANYONE", type = ChoiceType.Red }
@@ -123,6 +160,7 @@ namespace YanderesFrequency.Core
         {
             if (isGameStarted) return;
             isGameStarted = true;
+            redChoicesCount = 0;
 
             // Toggle UI/Objects
             if (objectsToEnableOnStart != null)
@@ -134,16 +172,8 @@ namespace YanderesFrequency.Core
                 foreach (var obj in objectsToDisableOnStart) { if (obj != null) obj.SetActive(false); }
             }
 
-            // Find the starting dialogue index based on the startShift debug setting
-            currentDialogueIndex = 0;
-            for (int i = 0; i < dialogues.Count; i++)
-            {
-                if (dialogues[i].shift >= startShift)
-                {
-                    currentDialogueIndex = i;
-                    break;
-                }
-            }
+            // Find the starting dialogue index based on the startIndex debug setting
+            currentDialogueIndex = Mathf.Clamp(startIndex, 0, dialogues.Count - 1);
             
             EnterNarrativePhase();
         }
@@ -160,18 +190,35 @@ namespace YanderesFrequency.Core
 
             if (currentDialogueIndex < dialogues.Count)
             {
-                int currentShift = dialogues[currentDialogueIndex].shift;
+                int currentPhase = dialogues[currentDialogueIndex].phase;
                 if (HazardManager.Instance != null)
                 {
-                    HazardManager.Instance.UpdatePhaseBasedOnShift(currentShift);
+                    HazardManager.Instance.UpdatePhase(currentPhase);
                 }
 
                 OnDialogueStarted?.Invoke(dialogues[currentDialogueIndex]);
             }
             else
             {
+                // Reached the end of the 48-line flow
                 Debug.Log("Game Completed!");
-                OnGameWon?.Invoke();
+                CheckEnding();
+            }
+        }
+
+        private void CheckEnding()
+        {
+            bool isTrueEnding = (redChoicesCount >= dialogues.Count / 2) && (currentActiveChoiceType == ChoiceType.Red);
+            
+            if (isTrueEnding)
+            {
+                Debug.Log("Triggered True Ending (Morning Sun)");
+                OnTrueEnding?.Invoke();
+            }
+            else
+            {
+                Debug.Log("Triggered Bad Ending (Forever Yours)");
+                OnBadEnding?.Invoke();
             }
         }
 
@@ -179,6 +226,7 @@ namespace YanderesFrequency.Core
         {
             CurrentState = GameState.Action;
             currentActiveChoiceType = choice.type;
+            mistakeMadeThisWord = false; // Reset mistake tracker for this word
             Debug.Log($"Entered Action Phase. Target Word: {choice.word}, Type: {choice.type}");
 
             if (healthSystem != null)
@@ -201,13 +249,17 @@ namespace YanderesFrequency.Core
 
             if (morseInputHandler != null)
             {
-                morseInputHandler.SetTargetWord(choice.word);
+                morseInputHandler.SetTargetWord(choice.ParsedWord);
             }
         }
 
         // Called by UI buttons directly
         public void OnChoiceSelected(ChoiceData choice)
         {
+            if (choice.type == ChoiceType.Red)
+            {
+                redChoicesCount++;
+            }
             StartActionPhase(choice);
         }
 
@@ -217,7 +269,15 @@ namespace YanderesFrequency.Core
             
             if (currentActiveChoiceType == ChoiceType.Red && healthSystem != null)
             {
-                healthSystem.GainHP(1); // Grants +1 Battery on success
+                if (!mistakeMadeThisWord)
+                {
+                    Debug.Log("Perfect Red Choice! Healing 1 Battery.");
+                    healthSystem.GainHP(1); // Grants +1 Battery on perfect success
+                }
+                else
+                {
+                    Debug.Log("Red Choice completed, but mistakes were made. No healing.");
+                }
             }
 
             currentDialogueIndex++;
@@ -257,23 +317,29 @@ namespace YanderesFrequency.Core
                 // RegEx to split by comma, ignoring commas inside quotes
                 string[] columns = System.Text.RegularExpressions.Regex.Split(lines[i], ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                 
-                if (columns.Length >= 6)
+                if (columns.Length >= 4)
                 {
                     DialogueEntry entry = new DialogueEntry();
                     
-                    int parsedShift = 1;
-                    int.TryParse(columns[0], out parsedShift);
-                    entry.shift = parsedShift;
-
+                    int parsedPhase = 1;
+                    int.TryParse(columns[0].Trim('\"'), out parsedPhase);
+                    entry.phase = parsedPhase;
+                    
                     entry.message = columns[1].Trim('\"'); // Remove quotes
                     
                     entry.greenChoice = new ChoiceData();
                     entry.greenChoice.word = columns[2].Trim('\"');
+                    entry.greenChoice.type = ChoiceType.Green; // Assign type explicitly
                     
                     entry.redChoice = new ChoiceData();
-                    entry.redChoice.word = columns[4].Trim('\"');
+                    entry.redChoice.word = columns[3].Trim('\"');
+                    entry.redChoice.type = ChoiceType.Red; // Assign type explicitly
                     
-                    dialogues.Add(entry);
+                    // Only add if it's a valid dialogue line
+                    if (!string.IsNullOrWhiteSpace(entry.message) && !string.IsNullOrWhiteSpace(entry.greenChoice.word))
+                    {
+                        dialogues.Add(entry);
+                    }
                 }
             }
             

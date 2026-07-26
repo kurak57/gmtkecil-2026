@@ -1,31 +1,49 @@
-Shift,Message,GreenWord,GreenDesc,RedWord,RedDesc
-1,Hey baby...,HEY,Normal,IGNORE,Rude
-1,It's so late... Why aren't you replying?,BUSY,Working,SLEEP,Lying
-1,You're not talking to anyone else right?,NO,Honest,YES,Provoking
-2,Your replies are so slow. Are you ignoring me?,SORRY,Apologetic,SLOW,Defiant
-2,I know you're reading this. Answer me.,YES,Submissive,NO,Rebellious
-2,I just want to hear your voice...,CALL,Comforting,CANT,Refusing
-3,I decided to go for a midnight walk. Guess where?,PARK,Innocent,NOWHERE,Suspicious
-3,The streets are empty. It's just me and my thoughts of you.,AWW,Sweet,CREEPY,Fearful
-3,I'm standing at your street corner now.,COME,Inviting,RETURN,Telling her to go home
-4,Your bedroom light is on. I can see it from here.,HI,Greeting,STALKER,Annoyed/Creeped out
-4,Why did you close the curtains? Hiding something?,COLD,Cold excuse,WINDOW,Avoiding the window
-4,Don't shut me out. We are meant to be together.,YES,Agreeing,INSANE,Calling her crazy
-5,My pager is acting up. Keep the connection alive!,OK,Following orders,CANCEL,Cutting it off
-5,"If you cut me off, I'll just come inside.",WAIT,Stopping her,PLEASE NO,Fearful
-5,I'm in your front yard. The grass is wet.,HUH,Normal response,GO AWAY,Rejecting
-6,Your front door is locked. Why did you lock it?,SAFE,Security reason,BLOCK YOU,Keeping her out on purpose
-6,Did you think a lock could keep me away from you?,NO,Giving up,ESCAPE,Intending to flee
-6,I have a spare key. You forgot I made one.,HOW,Shocked,ILLEGAL,Protesting
-7,I'm inside. It's so dark in your hallway.,HIDE,Hiding oneself,SEARCH,Telling her to look
-7,Shh… Let's play hide and seek baby,SHH,Staying quiet,SCREAM,Wanting to yell
-7,I can hear your heartbeat from outside your door.,CALM,Trying to relax,PANICKING,Total freakout
-8,I'm standing right outside your bedroom.,DOOR,Watching the door,BLOCK IT,Blocking the door
-8,I wonder where you'll hide...,BED,Surrendering,NOWHERE,Hiding
-8,"If you move even a muscle, I'll punish you.",STILL,Freezing,CONFRONT,Fighting back
-9,Is my pager broken? Or are you playing tricks?,BUG,Claiming it's broken,YOURFAULT,Manipulation
-9,Read my messages carefully. Don't let your eyes deceive you.,READ,Focusing,WILL NOT,Refusing to look
-9,The doorknob is turning. Are you ready?,YES,Resigned,REFUSE,Rejecting
-10,The door is jammed! What did you put against it?!,DESK,Honest,DRESSER,Holding strong
-10,You can't keep me away! I love you too much!,STOP,Begging to stop,MANIAC,Insulting
-10,I'M BREAKING IT DOWN! HERE I COME!,HUG,Accepting / Bad End,SURVIVE,Fighting / Survive
+﻿"Messages","Green Choice","Red Choice","Phase"
+"""Hey""","HI ","HELLO","1"
+"""Have u eaten yet?""","YES","WHY ASK","1"
+"""What r u doing?""","WORK","NOTHING","1"
+"""I miss you.""","ME TOO","I DONT","1"
+"""Reply to me, ok? :)""","OK","MAYBE","1"
+"""Thank u""","LOVE U","BYE","1"
+"""Still busy?""","A BIT","VERY BUSY","1"
+"""U R taking a while...""","SORRY","DONT CARE","1"
+"""been waiting for U...""","THANK U","I KNOW","1"
+"""Am I bothering u?""","NO","YES","1"
+"""R u there?""","YES","I AM NOT","1"
+"""Why did U take so long?""","WORK","WHY CARE?","1"
+"""U saw my message, did u?""","YES","NO","1"
+"""R U IGNORING ME?""","WHAT?","PROVE IT","2"
+"""DONT LIE TO ME""","I WON'T","WHATEVER","2"
+"""Please reply...""","I'M HERE","STOP","2"
+"""I've been waiting for u all this time.""","SORRY","WAIT","2"
+"""u r never this slow.""","MY BAD","BUSY","2"
+"""R u with someone else?""","NO","MAYBE","2"
+"""I just want a reply...""","IM HERE","LATER","2"
+"""I told u... I don't like it when u disappear.""","SORRY","CALM DOWN","2"
+"""If u r busy, tell me.""","I WILL","CAN'T","2"
+"""Just don't leave me wondering.""","OKAY","LEAVE ME","2"
+"""I've been thinking about u all day.""","MISS U TOO","WHY","2"
+"""But u can't even reply once.""","I'M SORRY","I'M BUSY","2"
+"""Am I rlly that unimportant to u?""","NEVER","I DON'T KNOW","2"
+"""I'm scared of losing u...""","I'M HERE","STOP","2"
+"""pager breaks outside.""","BUG","URFAULT","3"
+"""Im going for a walk. Guess where?""","PARK","NOWHERE ","3"
+"""I'm standing at ur street.""","WHY","GO AWAY ","3"
+"""Your bedroom light is on.""","HI (Greeting)","STALKER (Annoyed/Creeped out)","3"
+"""Why did u close the curtains?""","COLD (Cold excuse)","WINDOW (Avoiding the window)","3"
+"""Don't shut me out baby""","YES (Agreeing)","NO WAY","3"
+"""If u cut me off, I'll just come inside.""","WAIT (Stopping her)","PLEASE NO","3"
+"""I'm in ur front yard. The grass is wet.""","HUH (Normal response)","GO AWAY ","3"
+"""Why did u lock ur door?""","SAFE (Security reason)","BLOCK YOU (Keeping her out on purpose)","3"
+"""I have a spare key. I made it.""","HOW (Shocked)","ILLEGAL (Protesting)","3"
+"""I'm inside. ur hallway is dark.""","HIDE (Hiding oneself)","SEARCH (Telling her to look)","4"
+"""I can hear ur heartbeat from here.""","CALM (Trying to relax)","SCARED (Total freakout)","4"
+"""dont call the police baby. Its just u and me.""","US (Staying quiet)","POLICE","4"
+"""I'm standing right outside ur door""","DOOR (Watching the door)","BLOCK IT (Blocking the door)","4"
+"""I wonder where u r hiding...""","BED (Surrendering)","NOWHERE (Hiding)","4"
+"""If u move even a muscle, I'll punish u.""","STILL (Freezing)","CONFRONT (Fighting back)","5"
+"""Is this ur room?""","YES","GO AWAY","5"
+"""The doorknob is turning. R u ready?""","YES (Resigned)","REFUSE (Rejecting)","5"
+"""The door is jammed! What did you put against it?!""","DESK (Honest)","DRESSER (Holding strong)","5"
+"""You can't keep me away! I love you too much!""","STOP (Begging to stop)","PLEASE NO (Insulting)","5"
+"""I'M BREAKING IT DOWN! HERE I COME!""","HUG (Accepting / Bad End)","SURVIVE (Fighting / Survive)","5"
