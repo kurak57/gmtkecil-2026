@@ -73,6 +73,31 @@ public class AudioManager : MonoBehaviour
         bgmSource.Stop();
     }
 
+    public void PlaySFX(params AudioName[] names)
+    {
+        if (names == null || names.Length == 0)
+        {
+            sfxSource.Play();
+            return;
+        }
+        AudioName selectedName = names.Length == 1 ? names[0] : names[UnityEngine.Random.Range(0, names.Length)];
+        AudioEntry entry = audioClips.FirstOrDefault((clip) => clip.name == selectedName && clip.type == AudioType.SFX);
+        if (entry != null)
+        {
+            sfxSource.clip = entry.clip;
+            sfxSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"SFX With Name {selectedName} Not Found");
+        }
+    }
+
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
+
     public void PlayOneShotSFX(params AudioName[] names)
     {
         if (names == null || names.Length == 0) return;

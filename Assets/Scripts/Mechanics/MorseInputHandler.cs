@@ -212,6 +212,7 @@ namespace YanderesFrequency.Mechanics
         {
             if (gameManager != null && gameManager.CurrentState != GameState.Action) return;
 
+            AudioManager.Instance.PlaySFX();
             isPressing = true;
             pressStartTime = Time.time;
             healthSystem.SetHesitating(false);
@@ -229,6 +230,7 @@ namespace YanderesFrequency.Mechanics
         private void HandlePointerUp()
         {
             if (!isPressing) return;
+            AudioManager.Instance.StopSFX();
             isPressing = false;
 
             if (isRebooting)
@@ -256,6 +258,7 @@ namespace YanderesFrequency.Mechanics
             {
                 // Wrong input!
                 Debug.Log($"Wrong Input! Expected: {expectedMorseForLetter}, Got: {currentMorseInput}");
+                AudioManager.Instance.PlayOneShotSFX(AudioName.SFXMorseWrong);
                 healthSystem.TakeDamage(); // Candle -1
                 
                 // Reset input for the current letter so player can try again
@@ -268,6 +271,7 @@ namespace YanderesFrequency.Mechanics
             if (currentMorseInput == expectedMorseForLetter)
             {
                 Debug.Log($"Letter {targetWord[currentLetterIndex]} completed!");
+                AudioManager.Instance.PlayOneShotSFX(AudioName.SFXMorseCorrect);
                 currentLetterIndex++;
                 currentMorseInput = "";
                 healthSystem.ResetPatience(); // Reset patience on correct letter

@@ -109,6 +109,8 @@ namespace YanderesFrequency.Mechanics
 
             if (currentHP <= 0)
             {
+                AudioManager.Instance.PlayBGM(AudioName.BGMLose);
+                AudioManager.Instance.PlayOneShotSFX(AudioName.SFXLose);
                 OnGameOver?.Invoke();
             }
             else

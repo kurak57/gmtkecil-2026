@@ -19,17 +19,20 @@ public class MainSceneUIManager : MonoBehaviour
 
     private void OnPlayButtonClicked()
     {
+        AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         SceneManager.LoadScene("GameScene");
     }
 
     private void OnCreditsButtonClicked()
     {
+        AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         mainPanel.gameObject.SetActive(false);
         creditsPanel.gameObject.SetActive(true);
     }
 
     private void OnCreditsBackButtonClicked()
     {
+        AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         creditsPanel.gameObject.SetActive(false);
         mainPanel.gameObject.SetActive(true);
     }
