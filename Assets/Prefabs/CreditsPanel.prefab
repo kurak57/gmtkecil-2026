@@ -122,8 +122,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -490,7 +490,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: 'Love
+
+    Pager Panic'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2865125e12af4667a60e56d46ab4b31, type: 2}
   m_sharedMaterial: {fileID: -9205695453816921634, guid: e2865125e12af4667a60e56d46ab4b31, type: 2}
@@ -573,6 +575,7 @@ GameObject:
   - component: {fileID: 3312262928103945223}
   - component: {fileID: 381241476601796036}
   - component: {fileID: 8337340707708950990}
+  - component: {fileID: 8891865921263456741}
   m_Layer: 5
   m_Name: PanelBackground
   m_TagString: Untagged
@@ -595,7 +598,7 @@ RectTransform:
   m_Father: {fileID: 2995149464622763335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -637,6 +640,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8891865921263456741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866951656266262288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 4
+  m_AspectRatio: 0.55
 --- !u!1 &8442603459936157983
 GameObject:
   m_ObjectHideFlags: 0

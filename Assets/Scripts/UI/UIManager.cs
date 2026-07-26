@@ -250,6 +250,7 @@ namespace YanderesFrequency.UI
             if (narrativeMessageText != null) narrativeMessageText.text = "";
             
             GameManager.Instance.OnChoiceSelected(choice);
+            AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         }
 
         private string currentTargetWord = "";
@@ -368,7 +369,11 @@ namespace YanderesFrequency.UI
             if (choicesPanel != null) choicesPanel.SetActive(false);
             if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
             
-            if (endingImage != null && gameOverSprite != null) endingImage.sprite = gameOverSprite;
+            if (endingImage != null && gameOverSprite != null)
+            {
+                endingImage.gameObject.SetActive(true);
+                endingImage.sprite = gameOverSprite;
+            }
             if (endingTitleText != null) endingTitleText.text = gameOverTitle;
             if (endingDescriptionText != null) endingDescriptionText.text = gameOverDescription;
             if (endingPanel != null) endingPanel.SetActive(true);
@@ -379,7 +384,11 @@ namespace YanderesFrequency.UI
             if (choicesPanel != null) choicesPanel.SetActive(false);
             if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
             
-            if (endingImage != null && trueEndingSprite != null) endingImage.sprite = trueEndingSprite;
+            if (endingImage != null && trueEndingSprite != null)
+            {
+                endingImage.gameObject.SetActive(true);
+                endingImage.sprite = trueEndingSprite;
+            }
             if (endingTitleText != null) endingTitleText.text = trueEndingTitle;
             if (endingDescriptionText != null) endingDescriptionText.text = trueEndingDescription;
             if (endingPanel != null) endingPanel.SetActive(true);
@@ -390,7 +399,11 @@ namespace YanderesFrequency.UI
             if (choicesPanel != null) choicesPanel.SetActive(false);
             if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
             
-            if (endingImage != null && badEndingSprite != null) endingImage.sprite = badEndingSprite;
+            if (endingImage != null && badEndingSprite != null)
+            {
+                endingImage.gameObject.SetActive(true);
+                endingImage.sprite = badEndingSprite;
+            }
             if (endingTitleText != null) endingTitleText.text = badEndingTitle;
             if (endingDescriptionText != null) endingDescriptionText.text = badEndingDescription;
             if (endingPanel != null) endingPanel.SetActive(true);

@@ -193,9 +193,12 @@ namespace YanderesFrequency.Core
             StartIntro();
         }
 
-        public void RestartGame()
+        public void MainMenu()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            Time.timeScale = 1f;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+            AudioManager.Instance.PlayBGM(AudioName.BGMMainMenu);
+            AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         }
 
         public void StartIntro()
@@ -260,11 +263,15 @@ namespace YanderesFrequency.Core
             {
                 Debug.Log("Triggered True Ending (Morning Sun)");
                 OnTrueEnding?.Invoke();
+                AudioManager.Instance.PlayBGM(AudioName.BGMWin);
+                AudioManager.Instance.PlayOneShotSFX(AudioName.SFXWin);
             }
             else
             {
                 Debug.Log("Triggered Bad Ending (Forever Yours)");
                 OnBadEnding?.Invoke();
+                AudioManager.Instance.PlayBGM(AudioName.BGMLose);
+                AudioManager.Instance.PlayOneShotSFX(AudioName.SFXLose);
             }
         }
 
@@ -336,6 +343,8 @@ namespace YanderesFrequency.Core
             isExtremeMode = false;
             Debug.Log("Game Mode: NORMAL (Morse Helper Enabled)");
             StartGame();
+            AudioManager.Instance.PlayBGM(AudioName.BGMInGame);
+            AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
         }
 
         public void SetExtremeMode()
@@ -344,6 +353,18 @@ namespace YanderesFrequency.Core
             isExtremeMode = true;
             Debug.Log("Game Mode: EXTREME (Morse Helper Disabled)");
             StartGame();
+            AudioManager.Instance.PlayBGM(AudioName.BGMInGame);
+            AudioManager.Instance.PlayOneShotSFX(AudioName.SFXButtonClick);
+        }
+
+        public void PauseGame()
+        {
+            Time.timeScale = 0f;
+        }
+
+        public void ResumeGame()
+        {
+            Time.timeScale = 1f;
         }
 
         [ContextMenu("Load Dialogues From CSV")]
