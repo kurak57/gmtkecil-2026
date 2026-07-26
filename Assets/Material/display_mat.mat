@@ -42,9 +42,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _Distortion: 0.36
+    - _Distortion: 0.02
     - _EnableExternalAlpha: 0
-    - _ScanlineAmount: 306
+    - _ScanlineAmount: 525
     - _ScanlineThickness: 0.14
     - _Stencil: 0
     - _StencilComp: 0
@@ -52,7 +52,7 @@ Material:
     - _StencilReadMask: 0
     - _StencilWriteMask: 0
     - _ZWrite: 0
-    - _Zoom: 1.17
+    - _Zoom: 0.99
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
