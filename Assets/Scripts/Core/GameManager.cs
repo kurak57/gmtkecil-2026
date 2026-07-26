@@ -62,6 +62,7 @@ namespace YanderesFrequency.Core
 
         private int redChoicesCount = 0;
         private bool mistakeMadeThisWord = false;
+        private float introTimer = 0f;
 
         [Header("CSV Importer")]
         [SerializeField] private TextAsset dialogueCsvFile;
@@ -78,25 +79,18 @@ namespace YanderesFrequency.Core
         [SerializeField] private GameObject[] objectsToDisableOnStart;
 
         public event Action<DialogueEntry> OnDialogueStarted;
+        public event Action OnIntroStarted;
         public event Action OnTrueEnding;
         public event Action OnBadEnding;
 
         private void Awake()
         {
-            if (Instance == null)
+            Instance = this;
+            
+            // Auto-add HazardManager if missing
+            if (GetComponent<HazardManager>() == null)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-                
-                // Auto-add HazardManager if missing
-                if (GetComponent<HazardManager>() == null)
-                {
-                    gameObject.AddComponent<HazardManager>();
-                }
-            }
-            else
-            {
-                Destroy(gameObject);
+                gameObject.AddComponent<HazardManager>();
             }
         }
 
@@ -112,6 +106,27 @@ namespace YanderesFrequency.Core
 
             LoadDefaultDialoguesIfEmpty();
             // StartGame() is now called by the UI mode buttons
+        }
+
+        private void Update()
+        {
+            if (CurrentState == GameState.Intro)
+            {
+                introTimer -= Time.deltaTime;
+                bool skipped = false;
+
+#if ENABLE_INPUT_SYSTEM
+                if (UnityEngine.InputSystem.Mouse.current != null && UnityEngine.InputSystem.Mouse.current.leftButton.wasPressedThisFrame) skipped = true;
+                if (UnityEngine.InputSystem.Touchscreen.current != null && UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame) skipped = true;
+#else
+                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0) skipped = true;
+#endif
+
+                if (introTimer <= 0f || skipped)
+                {
+                    FinishIntro();
+                }
+            }
         }
 
         private void OnDestroy()
@@ -175,6 +190,32 @@ namespace YanderesFrequency.Core
             // Find the starting dialogue index based on the startIndex debug setting
             currentDialogueIndex = Mathf.Clamp(startIndex, 0, dialogues.Count - 1);
             
+            StartIntro();
+        }
+
+        public void RestartGame()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
+
+        public void StartIntro()
+        {
+            CurrentState = GameState.Intro;
+            introTimer = 3f; // Auto-skip after 3 seconds
+            Debug.Log("Entered Intro Phase.");
+            
+            if (healthSystem != null)
+            {
+                healthSystem.SetFrozen(true);
+            }
+            
+            OnIntroStarted?.Invoke();
+        }
+
+        public void FinishIntro()
+        {
+            if (CurrentState != GameState.Intro) return;
+            
             EnterNarrativePhase();
         }
 
@@ -208,7 +249,12 @@ namespace YanderesFrequency.Core
 
         private void CheckEnding()
         {
-            bool isTrueEnding = (redChoicesCount >= dialogues.Count / 2) && (currentActiveChoiceType == ChoiceType.Red);
+            // Calculate how many choices were actually made (to support startIndex debugging)
+            int actualStartIndex = Mathf.Clamp(startIndex, 0, dialogues.Count - 1);
+            int totalChoicesPlayed = dialogues.Count - actualStartIndex;
+            
+            // Requires at least 50% red choices from the played segment, AND the final choice must be Red
+            bool isTrueEnding = (redChoicesCount >= totalChoicesPlayed / 2f) && (currentActiveChoiceType == ChoiceType.Red);
             
             if (isTrueEnding)
             {

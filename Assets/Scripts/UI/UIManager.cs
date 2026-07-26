@@ -9,6 +9,8 @@ namespace YanderesFrequency.UI
     public class UIManager : MonoBehaviour
     {
         [Header("UI References")]
+        [SerializeField] private GameObject mainGameplayUI; // The parent containing all the gameplay HUD
+        [SerializeField] private GameObject introPanel; // The panel shown during the intro sequence
         [SerializeField] private TextMeshProUGUI hpText; // Obsolete (kept for compatibility)
         [SerializeField] private Image hpImageBar; // Used for the heart images (Filled Horizontal)
         [SerializeField] private Image patienceBar;
@@ -38,6 +40,25 @@ namespace YanderesFrequency.UI
         [SerializeField] private PatienceAndHealthSystem healthSystem;
         [SerializeField] private MorseInputHandler inputHandler;
 
+        [Header("Ending Screen")]
+        [SerializeField] private GameObject endingPanel;
+        [SerializeField] private Image endingImage;
+        [SerializeField] private TextMeshProUGUI endingTitleText;
+        [SerializeField] private TextMeshProUGUI endingDescriptionText;
+        
+        [Header("Ending Contents")]
+        [SerializeField] private Sprite gameOverSprite;
+        [SerializeField] private string gameOverTitle = "GAME OVER";
+        [SerializeField, TextArea(2, 4)] private string gameOverDescription = "She got you...";
+        
+        [SerializeField] private Sprite trueEndingSprite;
+        [SerializeField] private string trueEndingTitle = "YOU SURVIVED";
+        [SerializeField, TextArea(2, 4)] private string trueEndingDescription = "The police arrived. She fled into the night...\nYou are safe. (True Ending)";
+        
+        [SerializeField] private Sprite badEndingSprite;
+        [SerializeField] private string badEndingTitle = "DOOR OPENED";
+        [SerializeField, TextArea(2, 4)] private string badEndingDescription = "She is inside. There is nowhere to run...\nForever Yours. (Bad Ending)";
+
         private Vector3 originalTargetWordPos;
         private Vector3 originalInputTextPos;
         private float paranoiaGlitchTimer = 0f;
@@ -63,6 +84,7 @@ namespace YanderesFrequency.UI
 
             if (GameManager.Instance != null)
             {
+                GameManager.Instance.OnIntroStarted += HandleIntroStarted;
                 GameManager.Instance.OnDialogueStarted += HandleDialogueStarted;
                 GameManager.Instance.OnTrueEnding += HandleTrueEnding;
                 GameManager.Instance.OnBadEnding += HandleBadEnding;
@@ -153,6 +175,7 @@ namespace YanderesFrequency.UI
             }
             if (GameManager.Instance != null)
             {
+                GameManager.Instance.OnIntroStarted -= HandleIntroStarted;
                 GameManager.Instance.OnDialogueStarted -= HandleDialogueStarted;
                 GameManager.Instance.OnTrueEnding -= HandleTrueEnding;
                 GameManager.Instance.OnBadEnding -= HandleBadEnding;
@@ -182,8 +205,17 @@ namespace YanderesFrequency.UI
             if (hazardProgressBar != null) hazardProgressBar.gameObject.SetActive(false);
         }
 
+        private void HandleIntroStarted()
+        {
+            if (introPanel != null) introPanel.SetActive(true);
+            if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
+            if (choicesPanel != null) choicesPanel.SetActive(false);
+        }
+
         private void HandleDialogueStarted(DialogueEntry dialogue)
         {
+            if (introPanel != null) introPanel.SetActive(false);
+            if (mainGameplayUI != null) mainGameplayUI.SetActive(true);
             choicesPanel.SetActive(true);
 
             if (targetWordText != null) targetWordText.text = "";
@@ -333,23 +365,35 @@ namespace YanderesFrequency.UI
 
         private void HandleGameOver()
         {
-            if (targetWordText != null) targetWordText.text = "GAME OVER";
-            if (narrativeMessageText != null) narrativeMessageText.text = "She got you...";
-            choicesPanel.SetActive(false);
+            if (choicesPanel != null) choicesPanel.SetActive(false);
+            if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
+            
+            if (endingImage != null && gameOverSprite != null) endingImage.sprite = gameOverSprite;
+            if (endingTitleText != null) endingTitleText.text = gameOverTitle;
+            if (endingDescriptionText != null) endingDescriptionText.text = gameOverDescription;
+            if (endingPanel != null) endingPanel.SetActive(true);
         }
 
         private void HandleTrueEnding()
         {
-            if (targetWordText != null) targetWordText.text = "YOU SURVIVED";
-            if (narrativeMessageText != null) narrativeMessageText.text = "The police arrived. She fled into the night...\nYou are safe. (True Ending)";
-            choicesPanel.SetActive(false);
+            if (choicesPanel != null) choicesPanel.SetActive(false);
+            if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
+            
+            if (endingImage != null && trueEndingSprite != null) endingImage.sprite = trueEndingSprite;
+            if (endingTitleText != null) endingTitleText.text = trueEndingTitle;
+            if (endingDescriptionText != null) endingDescriptionText.text = trueEndingDescription;
+            if (endingPanel != null) endingPanel.SetActive(true);
         }
 
         private void HandleBadEnding()
         {
-            if (targetWordText != null) targetWordText.text = "DOOR OPENED";
-            if (narrativeMessageText != null) narrativeMessageText.text = "She is inside. There is nowhere to run...\nForever Yours. (Bad Ending)";
-            choicesPanel.SetActive(false);
+            if (choicesPanel != null) choicesPanel.SetActive(false);
+            if (mainGameplayUI != null) mainGameplayUI.SetActive(false);
+            
+            if (endingImage != null && badEndingSprite != null) endingImage.sprite = badEndingSprite;
+            if (endingTitleText != null) endingTitleText.text = badEndingTitle;
+            if (endingDescriptionText != null) endingDescriptionText.text = badEndingDescription;
+            if (endingPanel != null) endingPanel.SetActive(true);
         }
     }
 }
